@@ -3,3 +3,12 @@ https://fansided.com/files/2018/10/GettyImages-88163900.jpg
 https://fansided.com/files/2018/10/GettyImages-88163900.jpg
 
 https://pbs.twimg.com/media/Cr7qjLLWEAEeQkP.jpg
+
+<Route path = "/">
+        <Home></Home>
+     </Route>
+
+
+     <Route path = "/mainmarket">
+        <MainMarket products = {this.state.all_products}></MainMarket>
+     </Route>
