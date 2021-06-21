@@ -1,38 +1,38 @@
-.App {
+.title{
+  font-family: 'Niconne', cursive;
+  font-size: 110px;
+  color: rgb(246, 243, 247);
+  text-shadow: 5in;
+  outline: black;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sub{
+  font-family: 'Staatliches', cursive;
+  font-size: 20pt;
+  letter-spacing: 1.2px;
+  color: red;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.return{
+  font-family: 'Staatliches', cursive;
+  font-size: 18pt;
+  letter-spacing: .8px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.login{
+  text-align: center; 
+  align-content: center;
 }
 
-.App-link {
-  color: #61dafb;
+.username {
+  padding: 10px;
+  height: 20pt;
+  text-align: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.password {
+  text-align: center;
+  padding: 10px;
+  height:20pt;
 }

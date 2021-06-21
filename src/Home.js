@@ -1,0 +1,39 @@
+import React from 'react'
+import { ParallaxProvider } from "react-scroll-parallax"
+import Parallaximg from './Parallaximg'
+import { Form } from 'semantic-ui-react'
+import './App.css';
+
+
+const Home = (props) => {
+  return(
+    <ParallaxProvider>
+        <Parallaximg imgsrc= "https://www.gannett-cdn.com/-mm-/e9cd268047e6efd7b9e5d1b5ec378686ee757ecd/c=0-187-3598-2211/local/-/media/2020/05/12/USATODAY/usatsports/abdul-jabbar-1974-celtics.jpg" height= "450px" opacity= ".5">
+            <h1 className = "title" style= {{position: 'absolute'}}>Vintage Hoops</h1>
+        </Parallaximg>
+            <h2 className = "sub">Buy and sell vintage NBA apparel</h2>
+        <Parallaximg imgsrc= "https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTY4MTg2Nzc3NjIwOTgxMDA5/michael-jordan-1988-nba-slam-dunk-contest.jpg" height= "450px" opacity= ".2">
+        </Parallaximg>
+        <h3 className = "return">Returning customers</h3>
+        <form className = "login">
+            <input className = "username" placeholder = "username"></input>
+            <input className = "password" placeholder ="password"></input>
+            <br></br>
+            <br></br>
+            <button>Login</button>
+            <br></br>
+            <br></br>
+        </form>
+        <div>
+            <button>Register</button>
+            <button >Continue as guest</button>
+        </div>
+        <br></br>
+        <Parallaximg imgsrc= "https://theundefeated.com/wp-content/uploads/2019/01/GettyImages-1133669_16x9.jpg?w=1500" height= "300px" opacity= ".6">
+        </Parallaximg>
+    </ParallaxProvider>
+   )
+
+ }
+
+export default Home
