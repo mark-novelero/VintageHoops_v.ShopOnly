@@ -12,3 +12,16 @@ https://pbs.twimg.com/media/Cr7qjLLWEAEeQkP.jpg
      <Route path = "/mainmarket">
         <MainMarket products = {this.state.all_products}></MainMarket>
      </Route>
+
+   fetch('http://localhost:3000/players')
+    .then(res => res.json())
+    .then(players => this.setState(
+        {all_players: players}
+    )
+  )
+    fetch('http://localhost:3000/products')
+    .then(res => res.json())
+    .then(products => this.setState(
+      {all_products: products}
+    ))
+

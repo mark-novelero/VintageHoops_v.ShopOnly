@@ -1,17 +1,20 @@
 
-import React from 'react'
+import React, { Component } from 'react'
+import Itemcard from './Itemcard'
 import './mainmarket.css'
 
 
-const Productcards = (props) => {
-  
-   return(
-    <div>
-        <h4>{props.product.title}</h4>
-        <img className = "market_photo" src = {props.product.image}></img>
-    </div>
-   )
 
+
+class Productcards extends Component {
+ state = {}
+ render() {
+  return(
+   <div>{this.props.product.map(items => <Itemcard item = {items}/>)}</div>
+    )
+   }
  }
+
+
 
 export default Productcards

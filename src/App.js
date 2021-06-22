@@ -18,31 +18,36 @@ export default class App extends Component {
 
 componentDidMount(){
 
-    fetch('http://localhost:3000/players')
-    .then(res => res.json())
-    .then(players => this.setState(
-        {all_players: players}
-    )
-  )
-    fetch('http://localhost:3000/products')
-    .then(res => res.json())
-    .then(products => this.setState(
-      {all_products: products}
-    ))
-
     fetch('http://localhost:3000/sellers')
     .then(res => res.json())
-    .then(sellers => this.setState(
+    .then(sellers => 
+       this.setState(
       {all_sellers: sellers}
     ))
-
 } 
 
-currentUser = (obj) => {
+getSeller = (sellerObj) =>{
+  
+    let userInfo = {
+      username: sellerObj.username, 
+      password: sellerObj.password
+    }
 
-  this.setState({
-    current_user: obj.username
+    fetch('http://localhost:3000/login', {
+     method: "POST",
+     headers: {
+     "Content-Type": "application/json",
+   },
+      body: JSON.stringify(userInfo),
+   })
+    .then (res => res.json())
+    .then (user => {
+    this.setState({
+      current_user: user.username
+    })
   })
+
+
 }
 
 
@@ -55,9 +60,15 @@ currentUser = (obj) => {
      <Switch>
   
 
-     <Route path = "/">
-        <Home currentUser = {this.currentUser}></Home>
+     <Route path = "/main">
+        <MainMarket products = {this.state.all_sellers}/>
      </Route>
+
+     <Route path = "/">
+        <Home></Home>
+     </Route>
+
+     
         
 
      </Switch>

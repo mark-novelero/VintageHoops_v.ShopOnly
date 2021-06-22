@@ -1,0 +1,51 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: montserrat;
+}
+
+nav{
+    background: url("https://www.technistone.com/color-range/image-slab/Starlight%20Black_SLAB_web.jpg");
+    height: 95px;
+    width: 100%;
+}
+
+label.logo{
+    font-family: 'Niconne', cursive;
+    color: white;
+    font-size: 40pt;
+    line-height: 80px;
+    font-weight: bold;
+    float: left;
+    margin-left: 29pt;
+    margin-top: 5pt;
+}
+
+nav ul{
+    margin-top: 5pt;
+    float: right;
+    margin-right: 20px; 
+}
+
+nav ul li{
+    display: inline-block; 
+    line-height: 80px;
+    margin: 0 5px; 
+}
+
+nav ul li a{
+    color: white; 
+    font-size: 17px;
+    text-transform: uppercase;
+}
+
+a.active, a.hover{
+    background: black;
+    transition: .4s;
+}

@@ -1,8 +1,8 @@
-
 import { ParallaxProvider } from "react-scroll-parallax"
 import Parallaximg from './Parallaximg'
 import { Form } from 'semantic-ui-react'
 import './App.css';
+import {Link} from 'react-router-dom'
 
 
 import React, { Component } from 'react'
@@ -17,16 +17,22 @@ state = {
 }
 
 
-handleFormState = (e) => {
+handleUserName = (e) => {
     this.setState({
         username: e.target.value
+    })
+}
+
+handlePassword = (e) => {
+    this.setState({
+        password: e.target.value
     })
 }
 
 handleSubmit =(e)=>{
     e.preventDefault()
 
-    this.props.currentUser(this.state)
+    this.props.getSeller(this.state)
 }
 
  render() {
@@ -40,8 +46,8 @@ handleSubmit =(e)=>{
         </Parallaximg>
         <h3 className = "return">Returning customers</h3>
         <form onSubmit = {this.handleSubmit} className = "login">
-            <input onChange = {(e) => this.handleFormState(e)} className = "username" placeholder = "username"></input>
-            <input className = "password" placeholder ="password"></input>
+            <input onChange = {(e) => this.handleUserName(e)} className = "username" placeholder = "username"></input>
+            <input onChange = {(e) => this.handlePassword(e)} className = "password" placeholder ="password"></input>
             <br></br>
             <br></br>
             <button>Login</button>
@@ -50,7 +56,7 @@ handleSubmit =(e)=>{
         </form>
         <div>
             <button>Register</button>
-            <button >Continue as guest</button>
+            <Link to = '/main'><button >Continue as guest</button></Link>
         </div>
         <br></br>
         <Parallaximg imgsrc= "https://theundefeated.com/wp-content/uploads/2019/01/GettyImages-1133669_16x9.jpg?w=1500" height= "300px" opacity= ".6">
