@@ -4,6 +4,7 @@ import './App.css'
 import React, { Component } from 'react'
 import {Route, Switch, Link} from 'react-router-dom';
 import MainMarket from './main_market/MainMarket';
+import UserPage from './userpages/UserPage';
 
 
 
@@ -14,6 +15,7 @@ export default class App extends Component {
    all_products: [], 
    all_sellers: [], 
    current_user: "", 
+   current_user_products: [], 
    token: false
  }
 
@@ -56,17 +58,27 @@ getSeller = (sellerObj) =>{
     .then (userInfo => {
       localStorage.token = userInfo.token
       this.localToken(sellerObj)
+      this.getUserProducts()
     })
 
 }
 
 localToken =(obj)=>{
+
   if (localStorage.token !== "undefined" && localStorage.length === 1){
     this.setState({
       current_user: obj.username, 
       token: !this.state.token
     })
   }
+}
+
+getUserProducts = () => {
+  const currentSeller = this.state.all_sellers.find(seller => seller.username===this.state.current_user)
+
+  this.setState({
+    current_user_products: currentSeller.products
+  })
 }
 
 
@@ -78,6 +90,9 @@ localToken =(obj)=>{
 
      <Switch>
   
+    <Route path = "/userpage">
+      <UserPage userProducts = {this.state.current_user_products}></UserPage>
+    </Route>
 
      <Route path = "/main">
         <MainMarket products = {this.state.all_products}/>

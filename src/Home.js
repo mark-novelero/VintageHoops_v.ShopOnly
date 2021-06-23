@@ -45,20 +45,20 @@ handleSubmit =(e)=>{
             <h2 className = "sub">Buy and sell vintage NBA apparel</h2>
         <Parallaximg imgsrc= "https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTY4MTg2Nzc3NjIwOTgxMDA5/michael-jordan-1988-nba-slam-dunk-contest.jpg" height= "450px" opacity= ".2">
         </Parallaximg>
-        <h3 className = "return">Returning customers</h3>
-        
-        <form onSubmit = {this.handleSubmit} className = "login">
+        {this.props.token === false? <h3 className = "return">Returning customers</h3> : null}
+
+        {this.props.token === true? <h2 className = "welcome">Welcome {this.props.currentUser}</h2>: <form onSubmit = {this.handleSubmit} className = "login">
             <input onChange = {(e) => this.handleUserName(e)} className = "username" placeholder = "username"></input>
             <input onChange = {(e) => this.handlePassword(e)} className = "password" placeholder ="password"></input>
             <br></br>
             <br></br>
-            <button>Login</button>
+            <button>Login</button> 
             <br></br>
             <br></br>
-        </form>
+        </form>}
         <div>
-            <button>Register</button>
-            <Link to = '/main'><button >Continue as guest</button></Link>
+        {this.props.token === false? <button>Register</button> : null}
+        {this.props.token === false? <Link to = '/main'><button >Continue as guest</button></Link>: <Link to = '/userpage'><button >Enter</button></Link>}
         </div>
         <br></br>
         <Parallaximg imgsrc= "https://theundefeated.com/wp-content/uploads/2019/01/GettyImages-1133669_16x9.jpg?w=1500" height= "300px" opacity= ".6">

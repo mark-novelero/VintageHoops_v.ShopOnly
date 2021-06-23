@@ -2,7 +2,7 @@
  import React, { Component } from 'react'
 import Productcards from './Productcards'
 import './mainmarket.css'
-import Header from '../header/Header'
+import FixedHeader from '../header/FixedHeader'
  
  
  //sort field just below header
@@ -15,7 +15,7 @@ import Header from '../header/Header'
    return(
      
     <div >
-      <Header></Header>
+      <FixedHeader></FixedHeader>
       
       <br></br>
       <br></br>

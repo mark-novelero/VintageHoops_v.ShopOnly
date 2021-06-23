@@ -4,7 +4,7 @@ import './header.css'
 
 
 
-class Header extends Component {
+export default class FixedHeader extends Component {
  state = {}
  render() {
   return(
@@ -23,5 +23,3 @@ class Header extends Component {
  }
 
 
-Header.propTypes = {}
-export default Header

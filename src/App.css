@@ -7,6 +7,27 @@
   text-align: center;
 }
 
+.welcome{
+  font-family:'Niconne', cursive;
+  color: #FFFFFF;
+  background: red;
+  text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
+  color: rgb(3, 1, 1);
+  background: #FFFFFF;
+  font-size: 40pt;
+  text-align: center;
+
+  animation: fadeIn 6s;
+  -webkit-animation: fadeIn 6s;
+  -moz-animation: fadeIn 6s;
+  -o-animation: fadeIn 6s;
+  -ms-animation: fadeIn 6s;
+}
+
+
+
+
+
 .sub{
   font-family: 'Staatliches', cursive;
   font-size: 20pt;
