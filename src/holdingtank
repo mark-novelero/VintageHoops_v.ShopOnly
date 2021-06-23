@@ -49,3 +49,14 @@ https://pbs.twimg.com/media/Cr7qjLLWEAEeQkP.jpg
     <h2 className = "welcome">Welcome {this.props.currentUser}</h2>
 
 const currentSeller = this.state.all_sellers.find(seller => seller.username===obj.username)
+
+<form> 
+          <input classname = "title" placeholder = "Product Title"></input>
+          <input className = "price" placeholder = "Price"></input>
+          <input className = "description" placeholder = "Description"></input>
+          <input className = "team" placeholder = "Team"></input>
+      </form>
+
+
+
+      ------------------------------ Geddy's Holding Tank---------------------

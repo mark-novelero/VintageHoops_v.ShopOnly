@@ -13,7 +13,7 @@ export default class FixedHeader extends Component {
          <label className = "logo">Vintage Hoops</label>
          <ul>
            <li><a className = "active" href="#">Home</a></li>
-           <li><a href="#">Customer Service</a></li>
+           <li><a href="#">Sell New Item</a></li>
            <li><a href="#">Checkout</a></li>
          </ul>
        </nav>

@@ -5,7 +5,8 @@ import React, { Component } from 'react'
 import {Route, Switch, Link} from 'react-router-dom';
 import MainMarket from './main_market/MainMarket';
 import UserPage from './userpages/UserPage';
-
+import SellNew from './SellNew';
+import ItemCard from './ItemCard'
 
 
 export default class App extends Component {
@@ -16,7 +17,8 @@ export default class App extends Component {
    all_sellers: [], 
    current_user: "", 
    current_user_products: [], 
-   token: false
+   token: false, 
+   main_photo: {}
  }
 
 componentDidMount(){
@@ -73,6 +75,8 @@ localToken =(obj)=>{
   }
 }
 
+
+
 getUserProducts = () => {
   const currentSeller = this.state.all_sellers.find(seller => seller.username===this.state.current_user)
 
@@ -89,9 +93,17 @@ getUserProducts = () => {
    <div className = "login">
 
      <Switch>
+
+    <Route path = "/sell">
+      <SellNew></SellNew>
+    </Route>
+
+    <Route path = "/item">
+      <ItemCard></ItemCard>
+    </Route>
   
     <Route path = "/userpage">
-      <UserPage userProducts = {this.state.current_user_products}></UserPage>
+      <UserPage userProducts = {this.state.current_user_products} currentUser = {this.state.current_user}></UserPage>
     </Route>
 
      <Route path = "/main">

@@ -1,5 +1,5 @@
  
- import React, { Component } from 'react'
+import React, { Component } from 'react'
 import Productcards from './Productcards'
 import './mainmarket.css'
 import FixedHeader from '../header/FixedHeader'
@@ -9,12 +9,10 @@ import FixedHeader from '../header/FixedHeader'
  
  export default class MainMarket extends Component {
 
-  
- 
   render() {
    return(
      
-    <div >
+    <div>
       <FixedHeader></FixedHeader>
       
       <br></br>
