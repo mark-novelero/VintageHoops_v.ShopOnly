@@ -13,7 +13,8 @@ import React, { Component } from 'react'
 export default class Home extends Component {
  
 state = {
-    username: ""
+    username: "", 
+    password: ""
 }
 
 
@@ -45,6 +46,7 @@ handleSubmit =(e)=>{
         <Parallaximg imgsrc= "https://www.si.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cfl_progressive%2Cq_auto:good%2Cw_1200/MTY4MTg2Nzc3NjIwOTgxMDA5/michael-jordan-1988-nba-slam-dunk-contest.jpg" height= "450px" opacity= ".2">
         </Parallaximg>
         <h3 className = "return">Returning customers</h3>
+        
         <form onSubmit = {this.handleSubmit} className = "login">
             <input onChange = {(e) => this.handleUserName(e)} className = "username" placeholder = "username"></input>
             <input onChange = {(e) => this.handlePassword(e)} className = "password" placeholder ="password"></input>

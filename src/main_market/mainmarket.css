@@ -1,8 +1,8 @@
 .marketgrid{
-    margin: 0 auto; 
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 5px;
-    background: white;
+        margin: 0 auto; 
+        display: grid; 
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 5px;
 } 
 
 

@@ -1,6 +1,5 @@
 
 import React, { Component } from 'react'
-import Itemcard from './Itemcard'
 import './mainmarket.css'
 
 
@@ -10,7 +9,15 @@ class Productcards extends Component {
  state = {}
  render() {
   return(
-   <div>{this.props.product.map(items => <Itemcard item = {items}/>)}</div>
+   <div >
+     <br></br>
+     <h3>{this.props.product.title}</h3>
+     <h3>{this.props.product.price}</h3>
+     <br></br>
+     <img className = "market_photo" src={this.props.product.image}></img>
+     <br></br>
+    
+     </div>
     )
    }
  }

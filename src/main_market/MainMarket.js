@@ -5,7 +5,7 @@ import './mainmarket.css'
 import Header from '../header/Header'
  
  
- 
+ //sort field just below header
  
  export default class MainMarket extends Component {
 
@@ -16,9 +16,14 @@ import Header from '../header/Header'
      
     <div >
       <Header></Header>
+      
       <br></br>
       <br></br>
-      {this.props.products.map(product=> <Productcards product= {product.products}/>)}</div>
+      <br></br>
+      <div className = "marketgrid">
+      {this.props.products.map(product=> <Productcards product= {product}/>)}
+      </div>
+    </div>
      )
     }
   }

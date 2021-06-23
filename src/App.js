@@ -13,12 +13,24 @@ export default class App extends Component {
    all_players: [], 
    all_products: [], 
    all_sellers: [], 
-   current_user: ""
+   current_user: "", 
+   token: false
  }
 
 componentDidMount(){
 
-    fetch('http://localhost:3000/sellers')
+  fetch('http://localhost:3000/products')
+  .then(res => res.json())
+  .then(products => this.setState(
+    {all_products: products}
+  ))
+
+    fetch('http://localhost:3000/sellers', {
+      method: "GET", 
+      headers: {
+        Authorization: `Bearer ${localStorage.token}`
+      }
+    })
     .then(res => res.json())
     .then(sellers => 
        this.setState(
@@ -28,26 +40,33 @@ componentDidMount(){
 
 getSeller = (sellerObj) =>{
   
-    let userInfo = {
-      username: sellerObj.username, 
-      password: sellerObj.password
-    }
+  console.log(sellerObj)
 
     fetch('http://localhost:3000/login', {
      method: "POST",
      headers: {
      "Content-Type": "application/json",
    },
-      body: JSON.stringify(userInfo),
+      body: JSON.stringify({
+        username: sellerObj.username, 
+        password: sellerObj.password
+      }),
    })
     .then (res => res.json())
-    .then (user => {
-    this.setState({
-      current_user: user.username
+    .then (userInfo => {
+      localStorage.token = userInfo.token
+      this.localToken(sellerObj)
     })
-  })
 
+}
 
+localToken =(obj)=>{
+  if (localStorage.token !== "undefined" && localStorage.length === 1){
+    this.setState({
+      current_user: obj.username, 
+      token: !this.state.token
+    })
+  }
 }
 
 
@@ -61,14 +80,12 @@ getSeller = (sellerObj) =>{
   
 
      <Route path = "/main">
-        <MainMarket products = {this.state.all_sellers}/>
+        <MainMarket products = {this.state.all_products}/>
      </Route>
 
      <Route path = "/">
-        <Home></Home>
+        <Home getSeller = {this.getSeller} token= {this.state.token} currentUser = {this.state.current_user}></Home>
      </Route>
-
-     
         
 
      </Switch>

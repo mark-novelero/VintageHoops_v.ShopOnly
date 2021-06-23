@@ -25,3 +25,7 @@ https://pbs.twimg.com/media/Cr7qjLLWEAEeQkP.jpg
       {all_products: products}
     ))
 
+    userInfo => {
+      localStorage.token = userInfo.token
+    }
+
