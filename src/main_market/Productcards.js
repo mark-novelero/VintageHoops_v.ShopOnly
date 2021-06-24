@@ -1,6 +1,5 @@
-
-import React, { Component } from 'react'
 import './mainmarket.css'
+import React, { Component } from 'react'
 
 
 
@@ -9,15 +8,12 @@ class Productcards extends Component {
  state = {}
  render() {
   return(
-   <div >
-     <br></br>
-     <h3>{this.props.product.title}</h3>
-     <h3>{this.props.product.price}</h3>
-     <br></br>
+   <div className = "card">
      <img className = "market_photo" src={this.props.product.image}></img>
-     <br></br>
-    
-     </div>
+     <h3>{this.props.product.title}</h3>
+     <p className = "price">${this.props.product.price}</p>
+     <p><button>Add to Cart</button></p>
+   </div>
     )
    }
  }
@@ -25,3 +21,6 @@ class Productcards extends Component {
 
 
 export default Productcards
+
+
+

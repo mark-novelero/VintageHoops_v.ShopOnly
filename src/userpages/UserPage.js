@@ -11,14 +11,14 @@ class UserPage extends Component {
  render() {
   return(
    <div>
-       <FixedHeader></FixedHeader>
+       <FixedHeader token = {this.props.token}></FixedHeader>
        <br></br>
        <br></br>
        <h2>{this.props.currentUser}'s items</h2>
        <br></br>
        <br></br>
        <div className = "usergrid">
-       {this.props.userProducts.map(product => <UserPageCard product = {product}/>)}
+       {this.props.userProducts.map(product => <UserPageCard grabUserObj = {this.props.grabUserObj} product = {product}/>)}
        <br></br>
        <br></br>
        <br></br>

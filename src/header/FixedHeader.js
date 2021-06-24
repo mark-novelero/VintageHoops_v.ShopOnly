@@ -15,6 +15,7 @@ export default class FixedHeader extends Component {
          <ul>
            <Link to = "/main"><li><a className = "active" href="#">Vintage Market</a></li></Link>
            <Link to= "/sell"><li><a href="#">Sell</a></li></Link>
+           {this.props.token === true ? <Link to = "/userpage"><li><a className = "active" href="#">User Page</a></li></Link>: null}
            <li><a href="#">Checkout</a></li>
          </ul>
        </nav>

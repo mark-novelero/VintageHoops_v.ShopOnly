@@ -6,7 +6,8 @@ import {Route, Switch, Link} from 'react-router-dom';
 import MainMarket from './main_market/MainMarket';
 import UserPage from './userpages/UserPage';
 import SellNew from './SellNew';
-import ItemCard from './ItemCard'
+import FixedHeader from './header/FixedHeader';
+import UserItem from './userpages/UserItem';
 
 
 export default class App extends Component {
@@ -17,8 +18,10 @@ export default class App extends Component {
    all_sellers: [], 
    current_user: "", 
    current_user_products: [], 
+   newItemPublished: false, 
    token: false, 
-   main_photo: {}
+   main_photo: {}, 
+   selectUserProduct: {}
  }
 
 componentDidMount(){
@@ -110,12 +113,24 @@ createNewProduct =(obj)=> {
     .then (newItem => {
       this.setState({
         current_user_products: [...this.state.current_user_products, newItem]
-      })
+      }) 
     })
+
+    this.newItemPublished()
   }
 
 
+newItemPublished = () => {
+  this.setState({
+    newItemPublished: !this.state.newItemPublished
+  })
+}
 
+grabUserObj = (obj) => {
+  this.setState({
+    selectUserProduct: obj
+  })
+}
 
  
 
@@ -125,20 +140,28 @@ createNewProduct =(obj)=> {
 
      <Switch>
 
-    <Route path = "/sell">
-      <SellNew newProduct = {this.createNewProduct}></SellNew>
+    <Route path = "/useritem">
+      <UserItem></UserItem>
     </Route>
 
-    <Route path = "/item">
-      <ItemCard></ItemCard>
+    <Route path = "/sell">
+      <SellNew token = {this.state.token} newProduct = {this.createNewProduct} newItemPublished = {this.newItemPublished}
+      newItemDisplay = {this.state.newItemPublished}></SellNew>
     </Route>
+
+   
   
     <Route path = "/userpage">
-      <UserPage userProducts = {this.state.current_user_products} currentUser = {this.state.current_user}></UserPage>
+      <UserPage token = {this.state.token} userProducts = {this.state.current_user_products} 
+      grabUserObj= {this.grabUserObj} currentUser = {this.state.current_user}></UserPage>
     </Route>
 
      <Route path = "/main">
-        <MainMarket products = {this.state.all_products}/>
+        <MainMarket token = {this.state.token} products = {this.state.all_products}/>
+     </Route>
+
+     <Route path = "/nononono">
+       <FixedHeader token = {this.state.token}></FixedHeader>
      </Route>
 
      <Route path = "/">

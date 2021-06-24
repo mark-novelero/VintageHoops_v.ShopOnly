@@ -18,7 +18,7 @@ export default class SellNew extends Component {
      price: 0, 
      title: "", 
      product_type: "", 
-     player_id: 8 
+     player_id: 14 
  }
 
 handleSize = (e) =>{
@@ -67,10 +67,12 @@ handleSubmit = (e) => {
  render() {
   return(
    <ParallaxProvider>
-    <FixedHeader></FixedHeader>
+    <FixedHeader token = {this.props.token}></FixedHeader>
     <br></br>
     <Segment color = "gray" size = "small" inverted>
-    <Form onSubmit = {this.handleSubmit} inverted>
+      {this.props.newItemDisplay === false ? <h2>New Product Form</h2> : <h2>Product Added!</h2>}
+    <br></br>
+    {this.props.newItemDisplay === false ? <Form onSubmit = {this.handleSubmit} inverted>
       <Form.Group widths='equal'>
         <Form.Input onChange = {(e) => this.handleFormInputTitle(e)} fluid label='Product Title' placeholder='Product Title' />
         <Form.Input onChange = {(e) => this.handleFormInputImage(e)} fluid label='Image Url' placeholder='Image Url' />  
@@ -97,7 +99,7 @@ handleSubmit = (e) => {
       </Form.Field>
     </Form.Group>
       <Button type='submit'>Submit</Button>
-    </Form>
+    </Form> : <Button onClick = {()=> this.props.newItemPublished() }>Add More</Button>}
 </Segment>
 <Parallaximg imgsrc= "https://images.unsplash.com/photo-1590227632180-80a3bf110871?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80" height= "450px" opacity= "91.6">
 </Parallaximg>
