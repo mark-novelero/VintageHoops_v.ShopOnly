@@ -75,8 +75,6 @@ localToken =(obj)=>{
   }
 }
 
-
-
 getUserProducts = () => {
   const currentSeller = this.state.all_sellers.find(seller => seller.username===this.state.current_user)
 
@@ -84,6 +82,39 @@ getUserProducts = () => {
     current_user_products: currentSeller.products
   })
 }
+
+createNewProduct =(obj)=> {
+
+  const newProduct = {
+    player_id: 8,
+    seller_id: 12,
+    title: obj.title,
+    product_type: obj.product_type,
+    team: obj.team,
+    image: obj.image,
+    desc: obj.desc,
+    size: obj.size,
+    price: obj.price
+  }
+
+  
+
+  fetch('http://localhost:3000/products', {
+     method: "POST",
+     headers: {
+     "Content-Type": "application/json",
+   },
+      body: JSON.stringify(newProduct),
+   })
+    .then (res => res.json())
+    .then (newItem => {
+      this.setState({
+        current_user_products: [...this.state.current_user_products, newItem]
+      })
+    })
+  }
+
+
 
 
  
@@ -95,7 +126,7 @@ getUserProducts = () => {
      <Switch>
 
     <Route path = "/sell">
-      <SellNew></SellNew>
+      <SellNew newProduct = {this.createNewProduct}></SellNew>
     </Route>
 
     <Route path = "/item">
