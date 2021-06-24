@@ -39,7 +39,7 @@ import {Grid} from '@material-ui/core'
       <br></br>
       <br></br>
       <Grid container justify= "center" spacing= {4}>
-          {this.props.products.map((product) => (
+          {this.props.updateProducts.map((product) => (
           <Grid xs= {30} sm= {6} md= {4} lg={3}>
           <Productcards product= {product} key= {product.id}/>
       </Grid>

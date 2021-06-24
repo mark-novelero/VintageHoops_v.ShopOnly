@@ -21,7 +21,9 @@ export default class App extends Component {
    newItemPublished: false, 
    token: false, 
    main_photo: {}, 
-   selectUserProduct: {}
+   selectUserProduct: {}, 
+   sort: "none", 
+   filter: "all"
  }
 
 componentDidMount(){
@@ -132,9 +134,29 @@ grabUserObj = (obj) => {
   })
 }
 
+sortProducts = (sortType)=>{
+  this.setState({
+   sort: sortType,
+   all_products: this.state.all_products.sort(
+   (a,b) => sortType === "Price" ? a.price - b.price : a.name.localeCompare(b.name) )
+  })
+ }
+ filterProducts = (type) => {
+  this.setState({
+   filter: type
+  })
+ }
  
 
  render() {
+
+  let updateProducts = []
+  if(this.state.filter === "all"){
+   updateProducts = this.state.all_products
+  }else{
+   updateProducts = this.state.all_products.filter(product => product.product_type === this.state.filter)
+  }
+
   return(
    <div className = "login">
 
@@ -157,7 +179,8 @@ grabUserObj = (obj) => {
     </Route>
 
      <Route path = "/main">
-        <MainMarket token = {this.state.token} products = {this.state.all_products}/>
+        <MainMarket token = {this.state.token} products = {this.state.all_products}
+         sortProducts = {this.sortProducts} filterProducts = {this.filterProducts} updateProducts = {updateProducts}/>
      </Route>
 
      <Route path = "/nononono">
