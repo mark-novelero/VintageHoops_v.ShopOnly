@@ -11,7 +11,7 @@ class UserPage extends Component {
  render() {
   return(
    <div>
-       <FixedHeader token = {this.props.token}></FixedHeader>
+       <FixedHeader token = {this.props.token} cartCount = {this.props.cartCount}></FixedHeader>
        <br></br>
        <br></br>
        <h2>{this.props.currentUser}'s items</h2>

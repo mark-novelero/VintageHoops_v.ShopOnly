@@ -1,6 +1,7 @@
 import React from 'react'
 import { Image, Segment, Grid, Divider, Button } from "semantic-ui-react"
 import FixedHeader from '../header/FixedHeader'
+import {Link} from 'react-router-dom'
 
 const UserItem = (props) => {
   return(
@@ -9,37 +10,39 @@ const UserItem = (props) => {
         <br></br>
         <br></br>
         
-         <Segment>
+    <Segment>
     <Grid columns={2} relaxed='very'>
-      <Grid.Column>
+      {props.deleted === false ? <Grid.Column>
         <p>
-          <Image src='https://dyn1.heritagestatic.com/lf?set=path%5B1%2F5%2F5%2F8%2F1558754%5D%2Csizedata%5B850x600%5D&call=url%5Bfile%3Aproduct.chain%5D' />
+          <Image src={props.selectUserProduct.image} />
         </p>
-       
-      </Grid.Column>
-      <Grid.Column>
+      </Grid.Column> : <Grid.Column>
+        <Link to = "/userpage"><Button onClick = {() => props.deleteState()} size = "large" centered color = "blue">Home Page</Button></Link></Grid.Column>}
+        {props.deleted === false ? <Grid.Column>
+        <br></br>
+        <br></br> 
         <br></br>
         <br></br> 
         <p>
-            <h1>Dr. J Autograph Photo</h1>
+            <h1>{props.selectUserProduct.title}</h1>
         </p>
         <br></br>
         <p>
-            <h3>$140</h3>
+            <h2>${props.selectUserProduct.price}</h2>
         </p>
         <br></br>
         <br></br>
         <p>
-          <h3>This is a framed autograph photo of Dr. Julius Erving. The Product comes with a certificate of authenticity.</h3>
+            <h3 className = "addtional info">Additional Information</h3>
+            <p>{props.selectUserProduct.desc}</p>
         </p>
         <br></br>
         <br></br>
         <Segment>
         <Button size = "large" color = "blue">Edit Listing</Button>
-        <Button size = "large">Delete Listing</Button>
-        
+        <Button onClick = {() => props.eraser(props.selectUserProduct)} size = "large">Delete Listing</Button>
         </Segment>
-      </Grid.Column>
+      </Grid.Column> : <Grid.Column><h1>Deleted!</h1></Grid.Column>}
     </Grid>
 
     <Divider vertical></Divider>

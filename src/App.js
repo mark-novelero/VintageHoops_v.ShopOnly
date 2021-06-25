@@ -8,6 +8,8 @@ import UserPage from './userpages/UserPage';
 import SellNew from './SellNew';
 import FixedHeader from './header/FixedHeader';
 import UserItem from './userpages/UserItem';
+import MarketItemCard from './main_market/MarketItemCard';
+import CartHolder from './cartcomponents/CartHolder';
 
 
 export default class App extends Component {
@@ -20,13 +22,25 @@ export default class App extends Component {
    current_user_products: [], 
    newItemPublished: false, 
    token: false, 
-   main_photo: {}, 
+   selectMarketItem: {}, 
    selectUserProduct: {}, 
+   cartItems: [],
    sort: "none", 
-   filter: "all"
+   filter: "all", 
+   deleted: false, 
+   cartCount: 0, 
+   itemAdded: false, 
+   cartSum: 0
  }
 
 componentDidMount(){
+
+  fetch('http://localhost:3000/players')
+    .then(res => res.json())
+    .then(players => this.setState(
+        {all_players: players}
+    )
+  )
 
   fetch('http://localhost:3000/products')
   .then(res => res.json())
@@ -82,11 +96,14 @@ localToken =(obj)=>{
 
 getUserProducts = () => {
   const currentSeller = this.state.all_sellers.find(seller => seller.username===this.state.current_user)
-
-  this.setState({
-    current_user_products: currentSeller.products
+  const userProducts = this.state.all_products.filter(products => products.seller_id === currentSeller.id)
+  
+this.setState({
+    current_user_products: userProducts
   })
 }
+
+
 
 createNewProduct =(obj)=> {
 
@@ -114,7 +131,8 @@ createNewProduct =(obj)=> {
     .then (res => res.json())
     .then (newItem => {
       this.setState({
-        current_user_products: [...this.state.current_user_products, newItem]
+        current_user_products: [...this.state.current_user_products, newItem], 
+        all_products: [...this.state.all_products, newItem]
       }) 
     })
 
@@ -134,6 +152,12 @@ grabUserObj = (obj) => {
   })
 }
 
+grabMarketItem = (obj) => {
+  this.setState({
+    selectMarketItem: obj
+  })
+}
+
 sortProducts = (sortType)=>{
   this.setState({
    sort: sortType,
@@ -141,12 +165,65 @@ sortProducts = (sortType)=>{
    (a,b) => sortType === "Price" ? a.price - b.price : a.name.localeCompare(b.name) )
   })
  }
- filterProducts = (type) => {
+
+filterProducts = (type) => {
   this.setState({
    filter: type
   })
  }
  
+eraser = (obj) => {
+
+  if(window.confirm('Are you sure?'))
+  {
+    fetch(`http://localhost:3000/products/${obj.id}`, {
+      method: "DELETE",
+    })
+      .then((r) => r.json())
+      .then(() => console.log("Deleted"))
+    }
+
+    const updatedUserProducts = this.state.current_user_products.filter(product=> product.id !== obj.id)
+    this.setState({
+      current_user_products: updatedUserProducts
+    })
+
+    const updatedProducts = this.state.all_products.filter(product => product.id !== obj.id)
+    this.setState({
+      all_products: updatedProducts
+    })
+
+    this.deleteStateDisplay()    
+  }
+
+deleteStateDisplay = () => {
+  this.setState({
+    deleted: !this.state.deleted
+  })
+}
+
+addItemToCart = (obj) => {
+  
+  const selectedItem = this.state.all_products.filter(product => product.id !== obj.id)
+
+  this.setState({
+    all_products: selectedItem, 
+    cartItems: [...this.state.cartItems, obj], 
+    cartCount: this.state.cartCount + 1, 
+    itemAdded: !this.state.itemAdded, 
+    cartSum: this.state.cartSum + obj.price
+  })
+}
+
+itemAddedFunc = ()=> {
+  this.setState({
+    itemAdded: !this.state.itemAdded
+  })
+  
+}
+
+   
+
 
  render() {
 
@@ -157,34 +234,48 @@ sortProducts = (sortType)=>{
    updateProducts = this.state.all_products.filter(product => product.product_type === this.state.filter)
   }
 
+  let cartItemCount = this.state.cartItems.length
+
   return(
    <div className = "login">
 
-     <Switch>
+    <Switch>
+
+    <Route path = "/cart">
+      <CartHolder cartItems = {this.state.cartItems} cartItemCount = {this.cartItemCount}
+                  cartSum = {this.state.cartSum}></CartHolder>
+    </Route>
+
+    <Route path = "/marketitem">
+      <MarketItemCard selectMarketItem = {this.state.selectMarketItem} token = {this.state.token}
+        addItemToCart = {this.addItemToCart} cartCount = {this.state.cartCount}
+        itemAdded = {this.state.itemAdded} itemAddedFunc = {this.itemAddedFunc} deleteStateDisplay = {this.deleteStateDisplay}
+      ></MarketItemCard>
+    </Route>
 
     <Route path = "/useritem">
-      <UserItem></UserItem>
+      <UserItem eraser = {this.eraser} selectUserProduct = {this.state.selectUserProduct}
+        deleteState = {this.deleteStateDisplay} deleted = {this.state.deleted}></UserItem>
     </Route>
 
     <Route path = "/sell">
       <SellNew token = {this.state.token} newProduct = {this.createNewProduct} newItemPublished = {this.newItemPublished}
-      newItemDisplay = {this.state.newItemPublished}></SellNew>
+      newItemDisplay = {this.state.newItemPublished} cartCount = {this.state.cartCount}></SellNew>
     </Route>
-
-   
   
     <Route path = "/userpage">
       <UserPage token = {this.state.token} userProducts = {this.state.current_user_products} 
-      grabUserObj= {this.grabUserObj} currentUser = {this.state.current_user}></UserPage>
+        grabUserObj= {this.grabUserObj} currentUser = {this.state.current_user} cartCount = {this.state.cartCount}></UserPage>
     </Route>
 
-     <Route path = "/main">
-        <MainMarket token = {this.state.token} products = {this.state.all_products}
-         sortProducts = {this.sortProducts} filterProducts = {this.filterProducts} updateProducts = {updateProducts}/>
-     </Route>
+    <Route path = "/main">
+      <MainMarket grabMarketItem = {this.grabMarketItem} token = {this.state.token} products = {this.state.all_products}
+         sortProducts = {this.sortProducts} filterProducts = {this.filterProducts} updateProducts = {updateProducts}
+         cartCount = {this.state.cartCount}/>
+    </Route>
 
      <Route path = "/nononono">
-       <FixedHeader token = {this.state.token}></FixedHeader>
+       <FixedHeader token = {this.state.token} cartCount = {this.state.cartCount}></FixedHeader>
      </Route>
 
      <Route path = "/">

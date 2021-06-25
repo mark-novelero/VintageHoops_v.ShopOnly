@@ -10,11 +10,15 @@ import {Grid} from '@material-ui/core'
  
  export default class MainMarket extends Component {
 
+  
+
+ 
+
   render() {  
    return(
      
     <div>
-      <FixedHeader token = {this.props.token}></FixedHeader>
+      <FixedHeader token = {this.props.token} cartCount = {this.props.cartCount}></FixedHeader>
       <strong>Sort by:</strong>
       <label>
       <input type="radio" value="Price" 
@@ -41,7 +45,7 @@ import {Grid} from '@material-ui/core'
       <Grid container justify= "center" spacing= {4}>
           {this.props.updateProducts.map((product) => (
           <Grid xs= {30} sm= {6} md= {4} lg={3}>
-          <Productcards product= {product} key= {product.id}/>
+          <Productcards grabMarketItem= {this.props.grabMarketItem} product= {product} key= {product.id}/>
       </Grid>
       ))}
       </Grid>

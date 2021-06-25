@@ -67,7 +67,7 @@ handleSubmit = (e) => {
  render() {
   return(
    <ParallaxProvider>
-    <FixedHeader token = {this.props.token}></FixedHeader>
+    <FixedHeader token = {this.props.token} cartCount = {this.props.cartCount}></FixedHeader>
     <br></br>
     <Segment color = "gray" size = "small" inverted>
       {this.props.newItemDisplay === false ? <h2>New Product Form</h2> : <h2>Product Added!</h2>}
