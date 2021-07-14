@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 const UserItem = (props) => {
   return(
     <div>
-        <FixedHeader></FixedHeader>
+        <FixedHeader token = {props.token} cartCount = {props.cartCount}></FixedHeader>
         <br></br>
         <br></br>
         
@@ -39,7 +39,7 @@ const UserItem = (props) => {
         <br></br>
         <br></br>
         <Segment>
-        <Button size = "large" color = "blue">Edit Listing</Button>
+        
         <Button onClick = {() => props.eraser(props.selectUserProduct)} size = "large">Delete Listing</Button>
         </Segment>
       </Grid.Column> : <Grid.Column><h1>Deleted!</h1></Grid.Column>}

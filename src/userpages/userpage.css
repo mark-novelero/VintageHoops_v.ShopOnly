@@ -42,3 +42,13 @@ width: 225px;
   .card button:hover {
     opacity: 0.7;
   }
+
+  .amazing{
+      padding-right: 2in;
+      height: .5in;
+      background-color: rgb(248, 248, 202);
+  }
+
+  .newuser {
+      background-image: url("https://images-na.ssl-images-amazon.com/images/I/81I8CIV7iAL._AC_SL1500_.jpg");
+  }

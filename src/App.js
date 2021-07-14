@@ -10,6 +10,7 @@ import FixedHeader from './header/FixedHeader';
 import UserItem from './userpages/UserItem';
 import MarketItemCard from './main_market/MarketItemCard';
 import CartHolder from './cartcomponents/CartHolder';
+import NewUser from './userpages/NewUser';
 
 
 export default class App extends Component {
@@ -30,7 +31,8 @@ export default class App extends Component {
    deleted: false, 
    cartCount: 0, 
    itemAdded: false, 
-   cartSum: 0
+   cartSum: 0, 
+   newuser: false
  }
 
 componentDidMount(){
@@ -218,12 +220,33 @@ addItemToCart = (obj) => {
 itemAddedFunc = ()=> {
   this.setState({
     itemAdded: !this.state.itemAdded
-  })
-  
+  }) 
 }
 
-   
+newUserCreation = (obj) => {
+  
+  const newUser = {
+    username: obj.username,
+    password: obj.password, 
+    rating: 0
+  }
 
+  fetch('http://localhost:3000/sellers', {
+     method: "POST",
+     headers: {
+     "Content-Type": "application/json",
+   },
+      body: JSON.stringify(newUser),
+   })
+    .then (res => res.json())
+    .then (newItem => {
+      this.setState({
+        all_sellers: [...this.state.all_sellers, newItem], 
+        newuser: !this.state.newuser
+      }) 
+    })
+
+}
 
  render() {
 
@@ -234,28 +257,30 @@ itemAddedFunc = ()=> {
    updateProducts = this.state.all_products.filter(product => product.product_type === this.state.filter)
   }
 
-  let cartItemCount = this.state.cartItems.length
-
   return(
    <div className = "login">
 
     <Switch>
 
+    <Route path = "/newuser">
+      <NewUser newUserCreation = {this.newUserCreation} newUser = {this.state.newuser}></NewUser>
+    </Route>
+
     <Route path = "/cart">
-      <CartHolder cartItems = {this.state.cartItems} cartItemCount = {this.cartItemCount}
-                  cartSum = {this.state.cartSum}></CartHolder>
+      <CartHolder cartItems = {this.state.cartItems} cartCount = {this.state.cartCount}
+                  cartSum = {this.state.cartSum} token = {this.state.token}></CartHolder>
     </Route>
 
     <Route path = "/marketitem">
       <MarketItemCard selectMarketItem = {this.state.selectMarketItem} token = {this.state.token}
         addItemToCart = {this.addItemToCart} cartCount = {this.state.cartCount}
         itemAdded = {this.state.itemAdded} itemAddedFunc = {this.itemAddedFunc} deleteStateDisplay = {this.deleteStateDisplay}
-      ></MarketItemCard>
+        cartCount = {this.state.cartCount}></MarketItemCard>
     </Route>
 
     <Route path = "/useritem">
-      <UserItem eraser = {this.eraser} selectUserProduct = {this.state.selectUserProduct}
-        deleteState = {this.deleteStateDisplay} deleted = {this.state.deleted}></UserItem>
+      <UserItem eraser = {this.eraser} selectUserProduct = {this.state.selectUserProduct} token = {this.state.token}
+        deleteState = {this.deleteStateDisplay} deleted = {this.state.deleted} cartCount = {this.state.cartCount}></UserItem> 
     </Route>
 
     <Route path = "/sell">
@@ -282,7 +307,6 @@ itemAddedFunc = ()=> {
         <Home getSeller = {this.getSeller} token= {this.state.token} currentUser = {this.state.current_user}></Home>
      </Route>
         
-
      </Switch>
    </div>
     )

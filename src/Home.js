@@ -1,13 +1,5 @@
-
-
-
-
 import { ParallaxProvider } from "react-scroll-parallax"
 import Parallaximg from './Parallaximg'
-
-
-
-
 import { Form } from 'semantic-ui-react'
 import './App.css';
 import {Link} from 'react-router-dom'
@@ -65,7 +57,7 @@ render() {
               <br></br>
           </form>}
           <div>
-          {this.props.token === false? <button>Register</button> : null}
+          {this.props.token === false? <Link to = '/newuser'><button>Register</button></Link> : null}
           {this.props.token === false? <Link to = '/main'><button >Continue as guest</button></Link>: <Link to = '/userpage'><button >Enter</button></Link>}
           </div>
           <br></br>

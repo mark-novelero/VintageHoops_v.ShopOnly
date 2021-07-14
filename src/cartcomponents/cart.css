@@ -1,0 +1,23 @@
+.cartimg{
+    width: 160px;
+    margin-left: 3in;
+}
+
+
+h3 .cartitem{
+    margin-left: 1in;
+    text-align: center;
+    color: rgb(44, 43, 43);
+    margin-bottom: 1in;
+}
+
+
+
+.content {
+    box-shadow: 0 4px 8px 0 rgba(58, 33, 168, 0.2);
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
+
