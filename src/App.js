@@ -59,12 +59,12 @@ componentDidMount(){
     {all_products: products}
   ))
 
-    fetch('http://localhost:3000/sellers', {
-      method: "GET", 
-      headers: {
-        Authorization: `Bearer ${localStorage.token}`
+  fetch('http://localhost:3000/sellers', {
+    method: "GET", 
+    headers: {
+      Authorization: `Bearer ${localStorage.token}`
       }
-    })
+  })
     .then(res => res.json())
     .then(sellers => 
        this.setState(
@@ -74,26 +74,22 @@ componentDidMount(){
 
 getSeller = (sellerObj) =>{
   
-  console.log(sellerObj)
-
-    fetch('http://localhost:3000/login', {
-     method: "POST",
-     headers: {
+  fetch('http://localhost:3000/login', {
+    method: "POST",
+    headers: {
      "Content-Type": "application/json",
    },
-      body: JSON.stringify({
-        username: sellerObj.username, 
-        password: sellerObj.password
-      }),
+    body: JSON.stringify({
+      username: sellerObj.username, 
+      password: sellerObj.password
+    }),
    })
     .then (res => res.json())
     .then (userInfo => {
       localStorage.token = userInfo.token
       this.localToken(sellerObj)
-      this.getUserProducts()
-      
+      this.getUserProducts()  
     })
-
 }
 
 localToken =(obj)=>{
@@ -109,7 +105,6 @@ localToken =(obj)=>{
   this.setState({
     currentSeller: sellerNow
   })
-  
 }
 
 
@@ -172,11 +167,11 @@ updateProduct =(obj)=> {
   }
 
   fetch(`http://localhost:3000/products/${obj.id}`, {
-     method: "PATCH",
-     headers: {
+    method: "PATCH",
+    headers: {
      "Content-Type": "application/json",
    },
-      body: JSON.stringify(updatedProduct),
+    body: JSON.stringify(updatedProduct),
    })
     .then (res => res.json())
     .then (newItem => {
@@ -291,11 +286,8 @@ newUserCreation = (obj) => {
 
 changeTitlePage = () => {
   this.setState({
-    titlePage: !this.state.titlePage, 
-    
+    titlePage: !this.state.titlePage,  
   })
-
-  
 }
 
 removeCartItem = (obj) => {
@@ -309,10 +301,9 @@ removeCartItem = (obj) => {
 }
 
 getUserProducts = () => {
+  const userProducts = this.state.all_products.filter(products => products.seller_id === this.state.currentSeller.id)
   
-const userProducts = this.state.all_products.filter(products => products.seller_id === this.state.currentSeller.id)
-  
-this.setState({
+  this.setState({
     current_user_products: userProducts
   })
 }
@@ -330,8 +321,6 @@ resetSearchText = () => {
   })
 }
 
-
-
  render() {
 
   let updateProducts = []
@@ -347,7 +336,6 @@ resetSearchText = () => {
   return(
     
    <div className = "login">
-
     {this.state.titlePage === true ? null : 
     <FixedHeader token = {this.state.token} cartCount = {this.state.cartCount} 
      changeTitlePage = {this.changeTitlePage} itemAdded = {this.state.itemAdded}
@@ -413,9 +401,7 @@ resetSearchText = () => {
                   searchText = {this.state.searchText} resetSearchText = {this.resetSearchText}>
       </MainMarket>
     </Route>
-
     
-
     <Route path = "/">
       <Home getSeller = {this.getSeller} token= {this.state.token} currentUser = {this.state.current_user}
             changeTitlePage = {this.changeTitlePage} titlePage = {this.state.titlePage}>
