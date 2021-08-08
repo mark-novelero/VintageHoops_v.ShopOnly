@@ -45,11 +45,12 @@ render() {
             <button className = "newuser-button">Submit</button>
           </form> 
         : 
-      <div>
+        <div>
           <h1 className = "newuser-registration">Welcome! Please return to the home page and log in.</h1>
-          <Link to = "/"><Button onClick = {() => {this.props.changeTitlePage()}}>Home</Button></Link></div>}
+          <Link to = "/"><Button onClick = {() => {this.props.changeTitlePage()}}>Home</Button></Link>
+        </div>}
       </div>
-        <br></br>     
+      <br></br>     
     </div>
     )
   }

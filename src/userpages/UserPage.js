@@ -11,14 +11,14 @@ class UserPage extends Component {
 
  render() {
   return(
-    <div >
+    <div>
       <div className = "user-title">
         <h2 className = "user-title">{this.props.currentUser}'s items</h2>
       </div>
       <div className = "user-title-border"></div>
-       <div className = "usergrid">
-          {this.props.userProducts.map(product => <UserPageCard selectUserProduct = {this.props.selectUserProduct} grabUserObj = {this.props.grabUserObj} product = {product}/>)}
-       </div>
+         <div className = "usergrid">
+            {this.props.userProducts.map(product => <UserPageCard selectUserProduct = {this.props.selectUserProduct} grabUserObj = {this.props.grabUserObj} product = {product}/>)}
+         </div>
        <div className = "border-bottom"></div>
        <br></br>
     </div>

@@ -4,7 +4,6 @@ import './userpage.css';
 import {Link} from 'react-router-dom'
 
 
-
 export default class UpdateForm extends Component {
 
  state = {
@@ -30,7 +29,6 @@ handleSize = (e) =>{
 handleFormInputTitle = (e) => {
   this.setState({
     title: e.target.value,
-    
   })
 }
 
