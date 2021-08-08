@@ -1,11 +1,7 @@
 import React, { Component } from 'react'
-import { Form, Segment, Button } from "semantic-ui-react"
-import FixedHeader from './header/FixedHeader'
-import { ParallaxProvider } from "react-scroll-parallax"
-import Parallaximg from './Parallaximg'
-
-
-
+import { Form, Button } from "semantic-ui-react"
+import './App.css';
+import {Link} from 'react-router-dom'
 
 
 export default class SellNew extends Component {
@@ -23,7 +19,8 @@ export default class SellNew extends Component {
 
 handleSize = (e) =>{
     this.setState({
-        size: e.target.value
+        size: e.target.value, 
+        seller_id: this.props.currentSeller.id
     })
 }
 
@@ -66,12 +63,9 @@ handleSubmit = (e) => {
 
  render() {
   return(
-   <ParallaxProvider>
-    <FixedHeader token = {this.props.token} cartCount = {this.props.cartCount}></FixedHeader>
-    <br></br>
-    <Segment color = "gray" size = "small" inverted>
-      {this.props.newItemDisplay === false ? <h2>New Product Form</h2> : <h2>Product Added!</h2>}
-    <br></br>
+  <div className = "new-item-form">
+      <div className = "main-form">
+      {this.props.newItemDisplay === false ? <h2 className = "new-product-form">New Product Form</h2> : <h2 className = "listing-created">Product Listing Created!</h2>}
     {this.props.newItemDisplay === false ? <Form onSubmit = {this.handleSubmit} inverted>
       <Form.Group widths='equal'>
         <Form.Input onChange = {(e) => this.handleFormInputTitle(e)} fluid label='Product Title' placeholder='Product Title' />
@@ -81,6 +75,7 @@ handleSubmit = (e) => {
       </Form.Group> 
       <Form.Group widths='equal'>
       <Form.Field onChange = {(e) => this.handleSize(e)} label='Size' control='select'>
+        <option value='11'>--</option>
         <option value='na'>NA</option>
         <option value='small'>Small</option>
         <option value='medium'>Medium</option>
@@ -90,20 +85,20 @@ handleSubmit = (e) => {
         <option value='9'>9</option>
         <option value='10'>10</option>
         <option value='11'>11</option>
+        <option value='11'>12</option>
       </Form.Field>
       <Form.Field onChange = {(e) => this.handleFormInputType(e)} label='Product Type' control='select'>
         <option value='small'>Other</option>
         <option value='small'>Sneakers</option>
-        <option value='Jersey'>Jersey</option>
+        <option value='Jersey'>Jerseys</option>
         <option value='Memorabilia'>Memorabilia</option>
       </Form.Field>
     </Form.Group>
       <Button type='submit'>Submit</Button>
-    </Form> : <Button onClick = {()=> this.props.newItemPublished() }>Add More</Button>}
-</Segment>
-<Parallaximg imgsrc= "https://images.unsplash.com/photo-1590227632180-80a3bf110871?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxleHBsb3JlLWZlZWR8Nnx8fGVufDB8fHx8&w=1000&q=80" height= "450px" opacity= "91.6">
-</Parallaximg>
-</ParallaxProvider>
+    </Form> : <Button onClick = {()=> this.props.newItemPublished()}>Add More</Button>}
+    {this.props.newItemDisplay === false ? null : <Link to = "/userpage"><Button color = "red" onClick = {()=> this.props.newItemPublished()}>See New Listing</Button></Link>}
+    </div>
+</div>
     )
    }
  }

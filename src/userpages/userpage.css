@@ -1,54 +1,220 @@
-.usergrid{
-    margin: 0 auto; 
-    display: grid; 
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    grid-gap: 5px;
-  
-} 
+.usergrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 35px;
+  margin-top: 0.7in;
+}
 
-.user_photo{
-width: 225px;
+.manage-listing-button {
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  width: 80%;
+  font-size: 15px;
+  box-shadow: 0 6px 6px 0 rgba(58, 33, 168, 0.2);
+  background-color: rgb(178, 177, 187);
+  margin-top: 22px;
+}
+
+.user-item-img {
+  max-width: 450px;
+  max-height: 330px;
+  margin-top: 45px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.additional-info {
+  margin-top: 30px;
+}
+
+.newuser-registration {
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-size: 22pt;
+  color: rgb(249, 252, 249);
+  margin-bottom: 25px;
+
+  animation: fadeIn 6s;
+  -webkit-animation: fadeIn 6s;
+  -moz-animation: fadeIn 6s;
+  -o-animation: fadeIn 6s;
+  -ms-animation: fadeIn 6s;
+}
+
+.body-card {
+  margin-bottom: 45px;
+  margin-top: 20px;
+}
+
+.update-input {
+  color: red;
+}
+
+.user-item-desc {
+  font-family: "Forum", cursive;
+  font-size: 24pt;
+  box-shadow: #444343;
+  margin-bottom: 40px;
+  margin-top: 58px;
+}
+
+.new-user {
+  box-shadow: 0 6px 6px 0 rgba(15, 14, 15, 0.2);
+  height: 400px;
+  margin: 8%;
+  padding: 18px;
+  border-radius: 15px;
+  background-image: url("https://www.wfla.com/wp-content/uploads/sites/71/2021/03/BASKETBALL-PREMIUM-GETTY-IMAGE.jpg?strip=1");
+}
+
+.new-username {
+  margin-right: 32px;
+  height: 40px;
+  width: 250px;
+  background-color: rgb(243, 243, 224);
+  text-align: center;
+  font-size: 16px;
+  border-style: inset;
+}
+
+.new-user-form {
+  margin-bottom: 0.45in;
+  margin-top: 0.28in;
+  border-radius: 15px;
+  color: black;
+}
+
+.newuser-button {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #f8f6f6;
+  border-radius: 0.9em;
+  color: #f5f0f0;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: inline-flex;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 10px;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+}
+
+.newuser-button:hover,
+.btn:focus {
+  color: #fff;
+  outline: 0;
+}
+
+.newuser-button {
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.newuser-button:hover {
+  box-shadow: 0 0 40px 40px #036122 inset;
+}
+
+.new-user-password {
+  height: 40px;
+  width: 250px;
+  background-color: rgb(243, 243, 224);
+  text-align: center;
+  margin-bottom: 0.3in;
+  font-size: 16px;
+}
+
+.user_photo {
+  width: 240px;
+  height: 185px;
+  margin-top: 30px;
+  object-fit: cover;
+  border: 1px solid #3d0c0c;
+  box-shadow: 0 6px 6px 0 rgba(15, 14, 15, 0.2);
+  padding: 1.5px;
+  margin-bottom: 30px;
 }
 
 .sell {
-    background: url("https://cdn.vox-cdn.com/uploads/chorus_asset/file/18243701/163fa69302");
+  background: url("https://cdn.vox-cdn.com/uploads/chorus_asset/file/18243701/163fa69302");
 }
 
-.card {
-    box-shadow: 0 4px 8px 0 rgba(58, 33, 168, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    font-family: arial;
-  }
+.title-card {
+  font-family: "Kanit", sans-serif;
+  font-size: 15pt;
+  font-weight: 500;
+  color: rgb(8, 3, 15);
+  padding: 6px;
+  margin-top: 10px;
+}
 
-  .price {
-    color: rgb(5, 5, 5);
-    font-size: 18px;
-  }
+.user-card {
+  box-shadow: 6px 6px 6px 0 rgba(58, 33, 168, 0.2);
+  width: 590px;
+  height: 394px;
+  text-align: center;
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+}
 
-  .card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: rgb(5, 42, 66);
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-  }
+.user-title {
+  margin-right: 47.5%;
+  font-size: 37px;
+  font-family: "Niconne", cursive;
+  color: rgb(21, 21, 22);
+}
 
-  .card button:hover {
-    opacity: 0.7;
-  }
+.user-title-border {
+  border-bottom: 2px inset gray;
+  max-width: 85%;
+  align-items: center;
+  margin: auto;
+  box-shadow: 5px 8px 10px 0 rgba(39, 33, 77, 0.2);
+}
 
-  .amazing{
-      padding-right: 2in;
-      height: .5in;
-      background-color: rgb(248, 248, 202);
-  }
+.price {
+  color: rgb(5, 5, 5);
+  font-size: 18px;
+}
 
-  .newuser {
-      background-image: url("https://images-na.ssl-images-amazon.com/images/I/81I8CIV7iAL._AC_SL1500_.jpg");
-  }
+.border-bottom {
+  border-bottom: 2px inset rgb(206, 201, 201);
+  max-width: 80%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 5px 8px 10px 0 rgba(39, 33, 77, 0.2);
+  margin-top: 40px;
+}
+
+.listing-updated {
+  font-family: "Kanit", sans-serif;
+  font-weight: 700;
+  font-size: 22pt;
+  color: rgb(249, 252, 249);
+  margin-bottom: 33px;
+
+  animation: fadeIn 6s;
+  -webkit-animation: fadeIn 6s;
+  -moz-animation: fadeIn 6s;
+  -o-animation: fadeIn 6s;
+  -ms-animation: fadeIn 6s;
+}

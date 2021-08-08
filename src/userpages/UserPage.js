@@ -1,34 +1,27 @@
 import React, { Component } from 'react'
-import FixedHeader from '../header/FixedHeader'
-import MainMarket from '../main_market/MainMarket'
 import UserPageCard from './UserPageCard'
 import "./userpage.css"
 
 
-
 class UserPage extends Component {
- state = {}
+ 
+  componentDidMount() {
+    window.scrollTo(0, 0)
+  }
+
  render() {
   return(
-   <div>
-       <FixedHeader token = {this.props.token} cartCount = {this.props.cartCount}></FixedHeader>
-       <br></br>
-       <br></br>
-       <h2>{this.props.currentUser}'s items</h2>
-       <br></br>
-       <br></br>
+    <div >
+      <div className = "user-title">
+        <h2 className = "user-title">{this.props.currentUser}'s items</h2>
+      </div>
+      <div className = "user-title-border"></div>
        <div className = "usergrid">
-       {this.props.userProducts.map(product => <UserPageCard grabUserObj = {this.props.grabUserObj} product = {product}/>)}
-       <br></br>
-       <br></br>
-       <br></br>
+          {this.props.userProducts.map(product => <UserPageCard selectUserProduct = {this.props.selectUserProduct} grabUserObj = {this.props.grabUserObj} product = {product}/>)}
        </div>
+       <div className = "border-bottom"></div>
        <br></br>
-       <br></br>
-      <br></br>
-      <br></br>
-      <br></br>
-   </div>
+    </div>
     )
    }
  }

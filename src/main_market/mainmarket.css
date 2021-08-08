@@ -1,40 +1,185 @@
-.marketgrid{
-        margin: 0 auto; 
-        display: grid; 
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        grid-gap: 5px;
-} 
+.market_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-gap: 50px;
+  margin-top: 0.55in;
+}
 
+.top-market-page {
+  margin-top: 0.75in;
+}
 
-.market_photo{
-    width: 255px;
+.price-div {
+  margin-top: 38px;
+  color: rgb(26, 17, 17);
+}
+
+.product-img-div {
+  margin-top: auto;
+  border-style: inset;
+  border-width: 0.8px;
+  border-color: rgb(217, 217, 235);
+  box-shadow: 1px 3px 2px 0 rgba(151, 143, 151, 0.2);
+}
+
+.product-basket {
+  font-family: "Kanit", sans-serif;
+  font-size: 20px;
+  color: rgb(7, 3, 22);
+}
+
+.item-details-div {
+  margin-top: 6%;
+  margin-bottom: 3px;
+}
+
+.product_details {
+  width: 420px;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item_details_grid {
+  width: 80%;
+}
+
+.market_photo {
+  width: 250px;
+  height: 195px;
+  margin-top: 30px;
+  object-fit: cover;
+  border: 1px solid #3d0c0c;
+  box-shadow: 0 6px 6px 0 rgba(15, 14, 15, 0.2);
+  padding: 1.5px;
+}
+
+.sort-page {
+  margin-top: 0.2in;
+  display: inline;
+  margin-bottom: 0.8in;
+  margin-right: 0.01%;
+}
+
+.seach-text {
+  margin-right: 598px;
+  width: 2.6in;
+  height: 24px;
+}
+
+.s1 {
+  font-size: 15.5px;
+  margin-right: 53px;
+  font-family: "Kanit", sans-serif;
+}
+
+.title-item-details {
+  font-family: "Forum", cursive;
+  font-size: 24pt;
+  box-shadow: #444343;
+}
+
+.info-div {
+  margin-bottom: 50px;
+}
+
+.radial {
+  margin-right: 6px;
+}
+
+.item-pic-detail {
+  max-width: 450px;
+  max-height: 330px;
+  margin-top: 45px;
+  margin-bottom: 25px;
+}
+
+.vintage-market-title {
+  font-size: 47.7px;
+  font-family: "Niconne", cursive;
+  color: rgb(49, 49, 51);
+  margin-bottom: 0.4in;
+}
+
+.border-top {
+  border-bottom: 2px inset gray;
+  max-width: 80%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 5px 8px 10px 0 rgba(39, 33, 77, 0.2);
+  margin-bottom: 6px;
+  margin-top: 0px;
+}
+
+.border-bottom {
+  border-bottom: 2px inset rgb(206, 201, 201);
+  max-width: 80%;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 5px 8px 10px 0 rgba(39, 33, 77, 0.2);
+  margin-top: 40px;
+}
+
+.s2 {
+  font-size: 15.5px;
+  margin-right: 10px;
+  color: rgb(10, 10, 10);
+  font-family: "Kanit", sans-serif;
 }
 
 .card {
-    box-shadow: 0 4px 8px 0 rgba(58, 33, 168, 0.2);
-    max-width: 300px;
-    margin: auto;
-    text-align: center;
-    font-family: arial;
-  }
+  width: 500px;
+  height: 394px;
+  text-align: center;
+  margin: auto;
+  box-shadow: 2px 4px 8px 0 rgba(58, 33, 168, 0.2);
+  max-width: 300px;
+  border-radius: 10px;
+}
 
-  .price {
-    color: rgb(5, 5, 5);
-    font-size: 18px;
-  }
+.product_title {
+  font-family: "Kanit", sans-serif;
+  font-size: 15pt;
+  font-weight: 500;
+  color: rgb(8, 3, 15);
+  padding: 6px;
+}
 
-  .card button {
-    border: none;
-    outline: 0;
-    padding: 12px;
-    color: white;
-    background-color: rgb(5, 42, 66);
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-  }
+.price {
+  color: rgb(5, 5, 5);
+  font-size: 18px;
+}
 
-  .card button:hover {
-    opacity: 0.7;
-  }
+.button_market {
+  border: none;
+  border-radius: 12px;
+  padding: 12px;
+  color: white;
+  text-align: center;
+  cursor: pointer;
+  width: 80%;
+  font-size: 15px;
+  box-shadow: 0 6px 6px 0 rgba(58, 33, 168, 0.2);
+  background-color: rgb(178, 177, 187);
+}
+
+.button_market:hover {
+  color: rgb(7, 2, 2);
+}
+
+.button_market:active {
+  color: #222;
+  box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2), 1px 1px 0 0 #636161,
+    2px 2px 0 0 #535252, 3px 3px 0 0 #4b4a4a, 4px 4px 0 0 #4b4a4a,
+    5px 5px 0 0 #444343;
+}
+
+.radio-button {
+  margin-right: 10px;
+  background-color: 3px black;
+}
