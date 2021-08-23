@@ -18,12 +18,13 @@ import ScrollToTop from './header/ScrollToTop';
 
 export default class App extends Component {
  
+
   state = {
    all_players: [], 
    all_products: [], 
    all_sellers: [], 
    currentSeller: [],
-   current_user: "", 
+   currentUser: "", 
    current_user_products: [], 
    newItemPublished: false, 
    token: false, 
@@ -39,19 +40,33 @@ export default class App extends Component {
    newuser: false, 
    titlePage: true,
    radioButtonOn: false, 
-   searchText: ""
+   searchText: "", 
+   loginError: null, 
   }
+
+
+
+componentWillMount(){
+    localStorage.getItem('sellerProducts') && this.setState({
+      current_user_products: JSON.parse(localStorage.getItem('sellerProducts'))})
+
+    localStorage.getItem('currentUser') && this.setState({
+      currentUser: localStorage.currentUser
+    }) 
+    localStorage.getItem('homePage') && this.setState({
+      titlePage: localStorage.homePage
+    })
+
+    localStorage.getItem('userToken') && this.setState({
+      token: localStorage.userToken
+    })
+  }  
+
+
 
 componentDidMount(){
 
   window.scrollTo(0, 0)
-
-  fetch('http://localhost:3000/players')
-    .then(res => res.json())
-    .then(players => this.setState(
-        {all_players: players}
-    )
-  )
 
   fetch('http://localhost:3000/products')
   .then(res => res.json())
@@ -67,10 +82,23 @@ componentDidMount(){
   })
     .then(res => res.json())
     .then(sellers => 
-       this.setState(
-      {all_sellers: sellers}
+       this.setState({
+         all_sellers: sellers
+        }
     ))
+
 } 
+
+
+
+componentWillUpdate(nextProps, nextState){
+  localStorage.setItem('sellerProducts', JSON.stringify(nextState.current_user_products))
+  localStorage.setItem('currentUser', this.state.currentUser)
+  localStorage.setItem('homePage', this.state.titlePage)
+  localStorage.setItem('userToken', this.state.token)
+}
+
+
 
 getSeller = (sellerObj) =>{
   
@@ -84,36 +112,58 @@ getSeller = (sellerObj) =>{
       password: sellerObj.password
     }),
    })
-    .then (res => res.json())
+    .then (res => {
+      if(res.ok !== true){
+        throw Error("wrong username or password")
+      }
+      return res.json();
+    })
     .then (userInfo => {
       localStorage.token = userInfo.token
+      this.setState({
+        loginError: null,
+        userToken: userInfo.token
+      })
       this.localToken(sellerObj)
       this.getUserProducts()  
     })
+    .catch(err => {
+      this.setState({
+        loginError: "wrong username or password"
+      })
+    })
+
 }
+
+
 
 localToken =(obj)=>{
 
-  if (localStorage.token !== "undefined" && localStorage.length === 1){
+  if (localStorage.token !== "undefined"){
     this.setState({
-      current_user: obj.username, 
-      token: !this.state.token
+      currentUser: obj.username,
+      token: "true" 
+    })
+  } else {
+    this.setState({
+      currentUser: "", 
+      token: false
     })
   }
 
-  const sellerNow = this.state.all_sellers.find(seller => seller.username=== this.state.current_user)
+  const sellerNow = this.state.all_sellers.find(seller => seller.username=== this.state.currentUser)
   this.setState({
     currentSeller: sellerNow
   })
 }
 
 
+
 createNewProduct =(obj)=> {
 
-  const currentSeller = this.state.all_sellers.find(seller => seller.username===this.state.current_user)
+  const currentSeller = this.state.all_sellers.find(seller => seller.username===this.state.currentUser)
 
   const newProduct = {
-    player_id: 8,
     seller_id: currentSeller.id,
     title: obj.title,
     product_type: obj.product_type,
@@ -142,20 +192,22 @@ createNewProduct =(obj)=> {
     this.newItemPublished()
 }
 
+
+
 newItemPublished = () => {
   this.setState({
     newItemPublished: !this.state.newItemPublished
   })
 }
 
+
 updateProduct =(obj)=> {
 
-  const currentSeller = this.state.all_sellers.find(seller => seller.username===this.state.current_user)
+  const currentSeller = this.state.all_sellers.find(seller => seller.username===this.state.currentUser)
   const updatedSellerItems = this.state.current_user_products.filter(item => item.id != obj.id)
   const updateAllProducts = this.state.all_products.filter(product => product.id != obj.id)
 
   const updatedProduct = {
-    player_id: 8,
     seller_id: currentSeller.id,
     title: obj.title,
     product_type: obj.product_type,
@@ -185,17 +237,22 @@ updateProduct =(obj)=> {
     this.newItemPublished()
 }
 
+
+
 grabUserObj = (obj) => {
   this.setState({
     selectUserProduct: obj
   })
 }
 
+
 grabMarketItem = (obj) => {
   this.setState({
     selectMarketItem: obj
   })
 }
+
+
 
 sortProducts = (sortType)=>{
   this.setState({
@@ -205,12 +262,16 @@ sortProducts = (sortType)=>{
   })
 }
 
+
+
 filterProducts = (type) => {
   this.setState({
    filter: type
   })
 }
  
+
+
 eraser = (obj) => {
 
   if(window.confirm('Are you sure?'))
@@ -235,11 +296,15 @@ eraser = (obj) => {
     this.deleteStateDisplay()    
 }
 
+
+
 deleteStateDisplay = () => {
   this.setState({
     deleted: !this.state.deleted
   })
 }
+
+
 
 addItemToCart = (obj) => {
   
@@ -254,41 +319,49 @@ addItemToCart = (obj) => {
   })
 }
 
+
+
 itemAddedFunc = ()=> {
   this.setState({
-    itemAdded: !this.state.itemAdded
+    itemAdded: false
   }) 
 }
+
+
 
 newUserCreation = (obj) => {
   
   const newUser = {
     username: obj.username,
-    password: obj.password, 
-    rating: 0
+    password: obj.password 
   }
 
   fetch('http://localhost:3000/sellers', {
      method: "POST",
      headers: {
      "Content-Type": "application/json",
+     credentials: 'include'
    },
       body: JSON.stringify(newUser),
    })
     .then (res => res.json())
-    .then (newItem => {
+    .then (newSeller => {
       this.setState({
-        all_sellers: [...this.state.all_sellers, newItem], 
+        all_sellers: [...this.state.all_sellers, newSeller], 
         newuser: !this.state.newuser
       }) 
-    })
+   })
 }
+
+
 
 changeTitlePage = () => {
   this.setState({
     titlePage: !this.state.titlePage,  
   })
 }
+
+
 
 removeCartItem = (obj) => {
   const updatedCartItems = this.state.cartItems.filter(product=> product.id !== obj.id)
@@ -300,6 +373,8 @@ removeCartItem = (obj) => {
   })
 }
 
+
+
 getUserProducts = () => {
   const userProducts = this.state.all_products.filter(products => products.seller_id === this.state.currentSeller.id)
   
@@ -308,11 +383,15 @@ getUserProducts = () => {
   })
 }
 
+
+
 getSearchText = (e) => {
   this.setState({
     searchText: e.target.value 
   })
 }
+
+
 
 resetSearchText = () => {
   this.setState({
@@ -321,9 +400,23 @@ resetSearchText = () => {
   })
 }
 
- render() {
+
+
+logOut = () => {
+  this.setState({
+    token: !this.state.token, 
+    cartCount: 0, 
+    cartItems: [], 
+    itemAdded: false
+  })
+}
+
+
+
+render() {
 
   let updateProducts = []
+
   if(this.state.filter === "all"){
    updateProducts = this.state.all_products
   }else{
@@ -333,13 +426,16 @@ resetSearchText = () => {
   const filteredAllProducts = this.state.all_products.filter(product => product.title.toLowerCase().includes(this.state.searchText.toLowerCase()))
 
 
+  
   return(
     
    <div className = "login">
-    {this.state.titlePage === true ? null : 
+     
     <FixedHeader token = {this.state.token} cartCount = {this.state.cartCount} 
      changeTitlePage = {this.changeTitlePage} itemAdded = {this.state.itemAdded}
-     itemAddedFunc = {this.itemAddedFunc}></FixedHeader>}
+     itemAddedFunc = {this.itemAddedFunc} currentUser = {this.state.currentUser}
+     logOut = {this.logOut}>
+    </FixedHeader>
 
     <ScrollToTop scrollStepInPx= "50" delayInMs= "8"></ScrollToTop>
 
@@ -390,7 +486,7 @@ resetSearchText = () => {
   
     <Route path = "/userpage">
       <UserPage token = {this.state.token} userProducts = {this.state.current_user_products} selectUserProduct = {this.state.selectUserProduct}
-                grabUserObj= {this.grabUserObj} currentUser = {this.state.current_user} cartCount = {this.state.cartCount}>
+                grabUserObj= {this.grabUserObj} currentUser = {this.state.currentUser} cartCount = {this.state.cartCount}>
       </UserPage>
     </Route>
 
@@ -403,8 +499,10 @@ resetSearchText = () => {
     </Route>
     
     <Route path = "/">
-      <Home getSeller = {this.getSeller} token= {this.state.token} currentUser = {this.state.current_user}
-            changeTitlePage = {this.changeTitlePage} titlePage = {this.state.titlePage}>
+      <Home getSeller = {this.getSeller} token= {this.state.token} currentUser = {this.state.currentUser}
+            changeTitlePage = {this.changeTitlePage} titlePage = {this.state.titlePage}
+            loginError = {this.state.loginError} setLocalStorageData = {this.setLocalStorageData}
+            getLocalStorageData = {this.getLocalStorageData} userToken = {this.state.userToken}>
       </Home>
     </Route>
         

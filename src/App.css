@@ -1,11 +1,17 @@
 .title {
   font-family: "Niconne", cursive;
-  font-size: 110px;
+  font-size: 100px;
+  letter-spacing: 1.3px;
   color: rgb(250, 252, 138);
-
+  margin-bottom: 100px;
   text-shadow: 5in;
   outline: black;
   text-align: center;
+}
+
+.error {
+  color: red;
+  margin-top: 3px;
 }
 
 .welcome {
@@ -41,10 +47,10 @@
 
 .sub {
   font-family: "Staatliches", cursive;
-  font-size: 20pt;
+  font-size: 19pt;
   letter-spacing: 1.2px;
   color: rgb(5, 2, 2);
-  margin-top: 32px;
+  margin-top: 20px;
 }
 
 .return {
@@ -74,7 +80,9 @@
 
 .new-item-form {
   box-shadow: 0 6px 6px 0 rgba(15, 14, 15, 0.2);
-  margin: 3%;
+  margin-top: 8%;
+  margin-right: 3%;
+  margin-left: 3%;
   padding: 18px;
   border-radius: 15px;
   background-image: url("https://www.wfla.com/wp-content/uploads/sites/71/2021/03/BASKETBALL-PREMIUM-GETTY-IMAGE.jpg?strip=1");

@@ -5,11 +5,17 @@ import {Link} from 'react-router-dom'
 
 
 const MarketItemCard = (props) => {
+
+  
   return(
-    <div>
+
+    <div >
+        <br></br>
         {props.itemAdded === true ? <h1 className = "product-basket">Added to your basket!</h1> : null}
         <br></br>
-        <Segment >
+        <br></br>
+        <Segment className= "market-details" >
+
           <Grid columns={2} relaxed='very'>
             <Grid.Column  className = "item_details_grid">
               <div className = "product-img-div">
@@ -29,23 +35,33 @@ const MarketItemCard = (props) => {
                   <h3 className = "additional_info">Additional Information</h3>
                   <p>{props.selectMarketItem.desc}</p>
               </div>
+
               <Segment>
+
                 {props.itemAdded === false ? 
-                    <Button onClick ={() => props.addItemToCart(props.selectMarketItem)} size = "medium" color = "blue">Add to cart</Button> 
+                    <Button onClick ={() => props.addItemToCart(props.selectMarketItem)} 
+                    size = "medium" color = "blue">Add to cart</Button> 
                 : 
                 <div>
-                    <Link to = "/main"><Button onClick = {() => props.itemAddedFunc()} size = "medium" color = "blue">SHOP</Button></Link>
-                    <Link to = "/cart"><Button onClick = {() => props.itemAddedFunc()} size = "medium" color = "orange">CHECKOUT</Button></Link>
+                    <Link to = "/main"><Button onClick = {() => props.itemAddedFunc()} 
+                      size = "medium" color = "blue">SHOP</Button>
+                    </Link>
+                    <Link to = "/cart"><Button onClick = {() => props.itemAddedFunc()} 
+                      size = "medium" color = "orange">CHECKOUT</Button>
+                    </Link>
                 </div>} 
+                
                 {props.itemAdded === false ? 
                     <Link to = "/main"> <Button size = "medium" color = "orange">Back</Button></Link> : null} 
-                </Segment>
+              </Segment>
             </Grid.Column> 
           </Grid>
           <Divider vertical></Divider>
+
         </Segment>
         <br></br>
         <br></br>
+        <div className = "border-bottom"></div>
     </div>
    )
  }

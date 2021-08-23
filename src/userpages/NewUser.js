@@ -7,10 +7,14 @@ import {Link} from 'react-router-dom'
 
 export default class NewUser extends Component {
  
+
 state = {
    username: "", 
-   password: ""
+   password: "",  
+   registrationErrors: ""
 }
+
+
 
 handlePassword = (e) =>{
    this.setState({
@@ -18,11 +22,15 @@ handlePassword = (e) =>{
    })
 }
 
+
+
 handleUserName = (e) =>{
   this.setState({
      username: e.target.value
   })
 }
+
+
 
 handleSubmit = (e) =>{
   e.preventDefault()
@@ -31,16 +39,32 @@ handleSubmit = (e) =>{
 }
 
 
+
 render() {
+
   return(
     <div className = "new-user">   
       <br></br>
       <h2 className = "new-product-form">Registration Form</h2> 
+
       <div className = "new-user-form">
         {this.props.newUser === false ? 
           <form onSubmit = {this.handleSubmit}>
-            <input  onChange = {(e) => this.handleUserName(e)} className = "new-username" placeholder = "Create Username"></input>
-            <input onChange = {(e) => this.handlePassword(e)} className = "new-user-password" placeholder = "Create Password"></input>
+            <input  
+              onChange = {(e) => this.handleUserName(e)} 
+              className = "new-username" 
+              placeholder = "Create Username"
+              name= "username" 
+              required>  
+            </input>
+
+            <input 
+              onChange = {(e) => this.handlePassword(e)} 
+              className = "new-user-password" 
+              placeholder = "Create Password"
+              name = "password" 
+              required>
+            </input>
             <br></br>
             <button className = "newuser-button">Submit</button>
           </form> 

@@ -1,11 +1,14 @@
 import React from 'react'
 import { Image, Segment, Grid, Divider, Button } from "semantic-ui-react"
 import {Link} from 'react-router-dom'
+import "./userpage.css"
+
 
 
 const UserItem = (props) => {
+
   return(
-    <div>
+    <div className = "user-listing-card">
       <Segment>
         <Grid columns={2} relaxed='very'>
           {props.deleted === false ? 
@@ -45,7 +48,7 @@ const UserItem = (props) => {
         <br></br>
       </Segment>
     </div>
-   )
- }
+  )
+}
 
 export default UserItem 

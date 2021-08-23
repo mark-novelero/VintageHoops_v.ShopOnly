@@ -4,7 +4,9 @@ import './userpage.css';
 import {Link} from 'react-router-dom'
 
 
+
 export default class UpdateForm extends Component {
+
 
  state = {
      id: this.props.selectUserProduct.id,
@@ -19,6 +21,8 @@ export default class UpdateForm extends Component {
      player_id: 14 
  }
 
+
+
 handleSize = (e) =>{
     this.setState({
         size: e.target.value, 
@@ -26,11 +30,15 @@ handleSize = (e) =>{
     })
 }
 
+
+
 handleFormInputTitle = (e) => {
   this.setState({
     title: e.target.value,
   })
 }
+
+
 
 handleFormInputImage = (e) => {
   this.setState({
@@ -38,11 +46,15 @@ handleFormInputImage = (e) => {
   })
 }
 
+
+
 handleFormInputPrice = (e) => {
   this.setState({
     price: e.target.value, 
   })
 }
+
+
 
 handleFormInputDesc = (e) => {
   this.setState({
@@ -50,11 +62,15 @@ handleFormInputDesc = (e) => {
   })
 }
 
+
+
 handleFormInputType = (e) => {
   this.setState({
     product_type: e.target.value, 
   })
 }
+
+
 
 handleSubmit = (e) => {
   e.preventDefault()
@@ -62,7 +78,11 @@ handleSubmit = (e) => {
   this.props.updateProduct(this.state)
 }
 
+
+
+
  render() {
+  
   return(
   <div className = "new-item-form">
       <div className = "main-form">
@@ -106,5 +126,5 @@ handleSubmit = (e) => {
         </div>
     </div>
     )
-   }
- }
+  }
+}

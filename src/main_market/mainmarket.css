@@ -1,9 +1,13 @@
 .market_grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
   grid-gap: 50px;
   margin-top: 0.55in;
+}
+
+.market-details {
+  margin-top: 0.5in;
 }
 
 .top-market-page {
@@ -98,10 +102,10 @@
 }
 
 .vintage-market-title {
-  font-size: 47.7px;
+  font-size: 49.7px;
   font-family: "Niconne", cursive;
   color: rgb(49, 49, 51);
-  margin-bottom: 0.4in;
+  margin-bottom: 0.32in;
 }
 
 .border-top {
@@ -150,9 +154,10 @@
   padding: 6px;
 }
 
-.price {
+.price-card {
   color: rgb(5, 5, 5);
   font-size: 18px;
+  font-family: "Kanit", sans-serif;
 }
 
 .button_market {

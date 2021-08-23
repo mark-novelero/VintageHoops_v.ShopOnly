@@ -5,6 +5,8 @@ import {Link} from 'react-router-dom'
 
 
 export default class SellNew extends Component {
+  
+
  state = {
      size: "", 
      desc: "", 
@@ -14,8 +16,9 @@ export default class SellNew extends Component {
      price: 0, 
      title: "", 
      product_type: "", 
-     player_id: 14 
  }
+
+
 
 handleSize = (e) =>{
     this.setState({
@@ -24,12 +27,15 @@ handleSize = (e) =>{
     })
 }
 
+
+
 handleFormInputTitle = (e) => {
   this.setState({
     title: e.target.value,
-    
   })
 }
+
+
 
 handleFormInputImage = (e) => {
   this.setState({
@@ -37,11 +43,15 @@ handleFormInputImage = (e) => {
   })
 }
 
+
+
 handleFormInputPrice = (e) => {
   this.setState({
     price: e.target.value, 
   })
 }
+
+
 
 handleFormInputDesc = (e) => {
   this.setState({
@@ -49,11 +59,15 @@ handleFormInputDesc = (e) => {
   })
 }
 
+
+
 handleFormInputType = (e) => {
   this.setState({
     product_type: e.target.value, 
   })
 }
+
+
 
 handleSubmit = (e) => {
   e.preventDefault()
@@ -61,12 +75,15 @@ handleSubmit = (e) => {
   this.props.newProduct(this.state)
 }
 
+
+
  render() {
+
   return(
   <div className = "new-item-form">
       <div className = "main-form">
       {this.props.newItemDisplay === false ? <h2 className = "new-product-form">New Product Form</h2> : <h2 className = "listing-created">Product Listing Created!</h2>}
-    {this.props.newItemDisplay === false ? <Form onSubmit = {this.handleSubmit} inverted>
+      {this.props.newItemDisplay === false ? <Form onSubmit = {this.handleSubmit} inverted>
       <Form.Group widths='equal'>
         <Form.Input onChange = {(e) => this.handleFormInputTitle(e)} fluid label='Product Title' placeholder='Product Title' />
         <Form.Input onChange = {(e) => this.handleFormInputImage(e)} fluid label='Image Url' placeholder='Image Url' />  

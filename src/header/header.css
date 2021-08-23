@@ -16,7 +16,7 @@ body {
   top: 0;
   box-shadow: 10px 14px 10px 0 rgba(64, 55, 126, 0.2);
   background-color: rgb(222, 215, 240);
-  margin-bottom: 0.7in;
+  margin-bottom: 0.08in;
 }
 
 nav {
@@ -25,10 +25,55 @@ nav {
   width: 100%;
 }
 
+.logout {
+  max-height: 313px;
+  max-width: 500px;
+}
+
+.logout {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #080808;
+  border-radius: 0.9em;
+  color: white;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: inline-flex;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  font-size: 10px;
+  line-height: 10px;
+  padding: 0.62em 2.1em;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 20pt;
+  font-family: "Courgette", cursive;
+  align-items: center;
+}
+
+.logout:hover,
+.btn:focus {
+  color: rgb(250, 252, 138);
+  outline: 0;
+}
+
+.logout {
+  -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+}
+.logout {
+  box-shadow: 0 0 40px 40px #080808 inset;
+}
+
 label.logo {
   font-family: "Niconne", cursive;
   color: rgb(247, 250, 252);
-  font-size: 30pt;
+  font-size: 36pt;
   line-height: 80px;
   float: left;
   margin-left: 38pt;
@@ -76,5 +121,5 @@ a.hover {
 }
 
 #double-arrow {
-  font-size: 35px;
+  font-size: 40px;
 }
