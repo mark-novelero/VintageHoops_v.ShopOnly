@@ -3,7 +3,9 @@ import './cart.css'
 
 
  const CartItemCard = (props) => {
+  
   return(
+  
     <div className = "checkout-summary-div">
         <img className = "checkout-img" src = {props.cartItem.image}/>
         <div className = "title-div">

@@ -4,9 +4,11 @@ import './cart.css'
 import {Link} from 'react-router-dom'
 
 
+
 class CartHolder extends Component {
  
  render() {
+  
   return(
    
    <div>
