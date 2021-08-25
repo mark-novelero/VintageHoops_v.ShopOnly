@@ -52,8 +52,11 @@ scrollToTop = () => {
 
 
  render() {
+
   return(
+
    <div>{this.renderGoTopIcon()}</div>
+   
     )
    }
  }

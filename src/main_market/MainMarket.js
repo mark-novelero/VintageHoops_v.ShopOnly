@@ -4,12 +4,13 @@ import './mainmarket.css'
 
 
 
-
 export default class MainMarket extends Component {
   
+
   componentDidMount() {
     window.scrollTo(0, 0)
   }
+
 
   render() {  
    return(
@@ -41,20 +42,22 @@ export default class MainMarket extends Component {
       </div>
     <br></br>
     <br></br>
-    {this.props.searchText === "" ?
+
+    { this.props.searchText === "" ?
       <div className = "market_grid">
-        {this.props.updateProducts.map((product) => (
+        { this.props.updateProducts.map((product) => (
           <Productcards grabMarketItem= {this.props.grabMarketItem} product= {product} key= {product.id}
-                        resetSearchText = {this.props.resetSearchText}/>
-          ))} 
+                        resetSearchText = {this.props.resetSearchText}/>))
+        } 
       </div> 
     : 
       <div className = "market_grid">
-        {this.props.searchFilteredProducts.map((product) => (
+        { this.props.searchFilteredProducts.map((product) => (
           <Productcards grabMarketItem= {this.props.grabMarketItem} product= {product} key= {product.id}
-                        resetSearchText = {this.props.resetSearchText}/>
-        ))} 
-      </div>}
+                        resetSearchText = {this.props.resetSearchText}/>))
+        } 
+      </div> }
+      
       <br></br>
       <br></br>
     <div className = "border-bottom"></div>

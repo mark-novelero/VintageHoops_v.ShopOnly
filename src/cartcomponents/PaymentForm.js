@@ -99,6 +99,4 @@ class PaymentForm extends Component {
    }
  }
 
-
-
 export default PaymentForm

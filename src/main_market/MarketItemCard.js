@@ -11,11 +11,11 @@ const MarketItemCard = (props) => {
 
     <div >
         <br></br>
-        {props.itemAdded === true ? <h1 className = "product-basket">Added to your basket!</h1> : null}
+        { props.itemAdded === true ? <h1 className = "product-basket">Added to your basket!</h1> : null }
         <br></br>
         <br></br>
-        <Segment className= "market-details" >
 
+        <Segment className= "market-details" >
           <Grid columns={2} relaxed='very'>
             <Grid.Column  className = "item_details_grid">
               <div className = "product-img-div">
@@ -37,27 +37,30 @@ const MarketItemCard = (props) => {
               </div>
 
               <Segment>
-
-                {props.itemAdded === false ? 
+                { props.itemAdded === false ? 
                     <Button onClick ={() => props.addItemToCart(props.selectMarketItem)} 
-                    size = "medium" color = "blue">Add to cart</Button> 
+                            size = "medium" color = "blue">Add to cart</Button> 
                 : 
                 <div>
-                    <Link to = "/main"><Button onClick = {() => props.itemAddedFunc()} 
-                      size = "medium" color = "blue">SHOP</Button>
+                    <Link to = "/main">
+                      <Button onClick = {() => props.itemAddedFunc()} 
+                              size = "medium" color = "blue">SHOP</Button>
                     </Link>
-                    <Link to = "/cart"><Button onClick = {() => props.itemAddedFunc()} 
-                      size = "medium" color = "orange">CHECKOUT</Button>
+                    <Link to = "/cart">
+                      <Button onClick = {() => props.itemAddedFunc()} 
+                              size = "medium" color = "orange">CHECKOUT</Button>
                     </Link>
-                </div>} 
+                </div> } 
                 
                 {props.itemAdded === false ? 
-                    <Link to = "/main"> <Button size = "medium" color = "orange">Back</Button></Link> : null} 
+                  <Link to = "/main">
+                    <Button size = "medium" color = "orange">Back</Button>
+                  </Link> : null } 
               </Segment>
+
             </Grid.Column> 
           </Grid>
           <Divider vertical></Divider>
-
         </Segment>
         <br></br>
         <br></br>

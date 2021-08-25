@@ -12,7 +12,7 @@ class CartHolder extends Component {
   return(
    
    <div>
-    {this.props.cartCount === 0 ? 
+    { this.props.cartCount === 0 ? 
       <div className = "div-cart-image">
         <h1 className = "empty"> Your cart is empty.</h1> 
         <div className = "border-top"></div>
@@ -88,9 +88,14 @@ class CartHolder extends Component {
       </div> }
 
       <Segment>
-        {this.props.cartCount === 0 ? 
-          <Link to = "/main"><Button size = "large" color = "black">Back</Button></Link>: <div><h1 className = "cart-total">Subtotal ${this.props.cartSum}</h1>
-          <Link to = "/payment"><Button size = "medium" color = "black">Payment</Button></Link></div> }
+
+        { this.props.cartCount === 0 ? 
+          <Link to = "/main"><Button size = "large" color = "black">Back</Button></Link> 
+          : 
+          <div><h1 className = "cart-total">Subtotal ${this.props.cartSum}</h1>
+          <Link to = "/payment"><Button size = "medium" color = "black">Payment</Button></Link>
+          </div> }
+
       </Segment>
       <br></br>
    </div>

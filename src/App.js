@@ -16,6 +16,7 @@ import ScrollToTop from './header/ScrollToTop';
 
 
 
+
 export default class App extends Component {
  
 
@@ -27,7 +28,7 @@ export default class App extends Component {
    currentUser: "", 
    current_user_products: [], 
    newItemPublished: false, 
-   token: false, 
+   token: "false", 
    selectMarketItem: {}, 
    selectUserProduct: {}, 
    cartItems: [],
@@ -41,7 +42,8 @@ export default class App extends Component {
    titlePage: true,
    radioButtonOn: false, 
    searchText: "", 
-   loginError: null, 
+   loginError: null,
+   loggedOut: false
   }
 
 
@@ -87,6 +89,11 @@ componentDidMount(){
         }
     ))
 
+    if(localStorage.userToken === undefined){
+      this.setState({
+        token: "false"
+      })
+    } 
 } 
 
 
@@ -201,11 +208,12 @@ newItemPublished = () => {
 }
 
 
+
 updateProduct =(obj)=> {
 
-  const currentSeller = this.state.all_sellers.find(seller => seller.username===this.state.currentUser)
-  const updatedSellerItems = this.state.current_user_products.filter(item => item.id != obj.id)
-  const updateAllProducts = this.state.all_products.filter(product => product.id != obj.id)
+  const currentSeller = this.state.all_sellers.find(seller => seller.username === this.state.currentUser)
+  const updatedSellerItems = this.state.current_user_products.filter(item => item.id !== obj.id)
+  const updateAllProducts = this.state.all_products.filter(product => product.id !== obj.id)
 
   const updatedProduct = {
     seller_id: currentSeller.id,
@@ -357,7 +365,8 @@ newUserCreation = (obj) => {
 
 changeTitlePage = () => {
   this.setState({
-    titlePage: !this.state.titlePage,  
+    titlePage: !this.state.titlePage, 
+    newuser: !this.state.newuser 
   })
 }
 
@@ -403,12 +412,8 @@ resetSearchText = () => {
 
 
 logOut = () => {
-  this.setState({
-    token: !this.state.token, 
-    cartCount: 0, 
-    cartItems: [], 
-    itemAdded: false
-  })
+  window.localStorage.clear()
+  window.location.reload();
 }
 
 
@@ -426,16 +431,17 @@ render() {
   const filteredAllProducts = this.state.all_products.filter(product => product.title.toLowerCase().includes(this.state.searchText.toLowerCase()))
 
 
-  
+
   return(
     
    <div className = "login">
-     
-    <FixedHeader token = {this.state.token} cartCount = {this.state.cartCount} 
-     changeTitlePage = {this.changeTitlePage} itemAdded = {this.state.itemAdded}
-     itemAddedFunc = {this.itemAddedFunc} currentUser = {this.state.currentUser}
-     logOut = {this.logOut}>
-    </FixedHeader>
+
+    { this.state.loggedOut === true ? null : 
+    <FixedHeader  token = {this.state.token} cartCount = {this.state.cartCount} 
+                  changeTitlePage = {this.changeTitlePage} itemAdded = {this.state.itemAdded}
+                  itemAddedFunc = {this.itemAddedFunc} currentUser = {this.state.currentUser}
+                  logOut = {this.logOut}>
+    </FixedHeader> }
 
     <ScrollToTop scrollStepInPx= "50" delayInMs= "8"></ScrollToTop>
 
