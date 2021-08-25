@@ -47,7 +47,6 @@ export default class App extends Component {
   }
 
 
-
 componentWillMount(){
     localStorage.getItem('sellerProducts') && this.setState({
       current_user_products: JSON.parse(localStorage.getItem('sellerProducts'))})
@@ -62,8 +61,7 @@ componentWillMount(){
     localStorage.getItem('userToken') && this.setState({
       token: localStorage.userToken
     })
-  }  
-
+}  
 
 
 componentDidMount(){
@@ -139,9 +137,7 @@ getSeller = (sellerObj) =>{
         loginError: "wrong username or password"
       })
     })
-
 }
-
 
 
 localToken =(obj)=>{
@@ -163,7 +159,6 @@ localToken =(obj)=>{
     currentSeller: sellerNow
   })
 }
-
 
 
 createNewProduct =(obj)=> {
@@ -200,13 +195,11 @@ createNewProduct =(obj)=> {
 }
 
 
-
 newItemPublished = () => {
   this.setState({
     newItemPublished: !this.state.newItemPublished
   })
 }
-
 
 
 updateProduct =(obj)=> {
@@ -246,7 +239,6 @@ updateProduct =(obj)=> {
 }
 
 
-
 grabUserObj = (obj) => {
   this.setState({
     selectUserProduct: obj
@@ -261,7 +253,6 @@ grabMarketItem = (obj) => {
 }
 
 
-
 sortProducts = (sortType)=>{
   this.setState({
    radioButtonOn: !this.radioButtonOn,
@@ -271,14 +262,12 @@ sortProducts = (sortType)=>{
 }
 
 
-
 filterProducts = (type) => {
   this.setState({
    filter: type
   })
 }
  
-
 
 eraser = (obj) => {
 
@@ -305,13 +294,11 @@ eraser = (obj) => {
 }
 
 
-
 deleteStateDisplay = () => {
   this.setState({
     deleted: !this.state.deleted
   })
 }
-
 
 
 addItemToCart = (obj) => {
@@ -328,13 +315,11 @@ addItemToCart = (obj) => {
 }
 
 
-
 itemAddedFunc = ()=> {
   this.setState({
     itemAdded: false
   }) 
 }
-
 
 
 newUserCreation = (obj) => {
@@ -362,14 +347,12 @@ newUserCreation = (obj) => {
 }
 
 
-
 changeTitlePage = () => {
   this.setState({
     titlePage: !this.state.titlePage, 
     newuser: !this.state.newuser 
   })
 }
-
 
 
 removeCartItem = (obj) => {
@@ -383,7 +366,6 @@ removeCartItem = (obj) => {
 }
 
 
-
 getUserProducts = () => {
   const userProducts = this.state.all_products.filter(products => products.seller_id === this.state.currentSeller.id)
   
@@ -391,7 +373,6 @@ getUserProducts = () => {
     current_user_products: userProducts
   })
 }
-
 
 
 getSearchText = (e) => {
@@ -408,7 +389,6 @@ resetSearchText = () => {
     filter: "all"
   })
 }
-
 
 
 logOut = () => {
