@@ -56,22 +56,7 @@ render() {
             imgsrc= "https://i.imgur.com/qzQ5y4K.png" height= "480px" opacity= ".2">
           </Parallaximg>
             
-            { this.props.token === "false" ? <h3 className = "return">Returning customers</h3> : null}
-            <div className = "div-line"></div>
-            <br></br>
-            { this.props.token !== "false"  ? <h2 className = "welcome">Welcome {this.props.currentUser}</h2> 
-            : 
-            <form onSubmit = {this.handleSubmit} className = "login">
-                <input onChange = {(e) => this.handleUserName(e)} className = "username" placeholder = "username"></input>
-                <input onChange = {(e) => this.handlePassword(e)} className = "password" placeholder ="password"></input>
-                <br></br>
-              {this.props.token == "false" ? <button className = "log-btn">Login</button> : null} 
-            </form>}
-            { this.props.loginError !== null ? <h5 className = "error">{this.props.loginError}</h5> : null }
-            { this.props.token === "false" ? null : <Link to = '/userpage'><button className = "enter" onClick = {() => {this.props.changeTitlePage()}}>Enter</button></Link> }
-          
-          <Parallaximg imgsrc= "https://i.imgur.com/hOTFVYu.jpg" height= "300px" opacity= ".6">
-        </Parallaximg>
+           
       </ParallaxProvider>
       )
     }

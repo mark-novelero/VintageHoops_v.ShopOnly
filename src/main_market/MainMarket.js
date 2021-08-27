@@ -32,7 +32,6 @@ export default class MainMarket extends Component {
         <label>
           <strong className = "s2">Filter</strong>
             <select onChange={(e) => this.props.filterProducts(e.target.value)}>
-              <option value="NA">--</option>
               <option value="all">All</option>
               <option value="Sneakers">Sneakers</option>
               <option value="Jerseys">Jerseys</option>
