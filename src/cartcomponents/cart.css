@@ -119,7 +119,7 @@
 }
 
 .div-cart-image {
-  margin-top: 20px;
+  margin-top: 60px;
 }
 
 .mj {
@@ -135,6 +135,7 @@
 }
 
 .empty {
+  margin-top: 20px;
   font-family: "Kanit", sans-serif;
   font-weight: 600;
   font-size: 22pt;
