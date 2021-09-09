@@ -13,10 +13,12 @@ body {
 .header {
   position: sticky;
   height: 100px;
+  width: 120%;
   top: 0;
   box-shadow: 10px 14px 10px 0 rgba(64, 55, 126, 0.2);
   background-color: rgb(222, 215, 240);
   margin-bottom: 0.08in;
+  z-index: 3;
 }
 
 nav {
@@ -83,7 +85,7 @@ label.logo {
 nav ul {
   margin-top: 5pt;
   float: right;
-  margin-right: 20px;
+  margin-right: 30px;
   font-size: 25pt;
 }
 
@@ -122,4 +124,202 @@ a.hover {
 
 #double-arrow {
   font-size: 40px;
+}
+
+@media only screen and (min-width: 1200px) {
+  * {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: montserrat;
+  }
+
+  .header {
+    position: sticky;
+    height: 100px;
+    width: 100%;
+    top: 0;
+    box-shadow: 10px 14px 10px 0 rgba(64, 55, 126, 0.2);
+    background-color: rgb(222, 215, 240);
+    margin-bottom: 0.08in;
+    z-index: 3;
+  }
+
+  nav {
+    background: url("https://i.imgur.com/yQ8PTjxh.jpg");
+    height: 100px;
+    width: 100%;
+  }
+
+  .logout {
+    max-height: 313px;
+    max-width: 500px;
+  }
+
+  .logout {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #080808;
+    border-radius: 0.9em;
+    color: white;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: inline-flex;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    font-size: 10px;
+    line-height: 10px;
+    padding: 0.62em 2.1em;
+    text-decoration: none;
+    font-weight: 900;
+    font-size: 20pt;
+    font-family: "Courgette", cursive;
+    align-items: center;
+  }
+
+  .logout:hover,
+  .btn:focus {
+    color: rgb(250, 252, 138);
+    outline: 0;
+  }
+
+  .logout {
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  }
+  .logout {
+    box-shadow: 0 0 40px 40px #080808 inset;
+  }
+
+  label.logo {
+    font-family: "Niconne", cursive;
+    color: rgb(247, 250, 252);
+    font-size: 36pt;
+    line-height: 80px;
+    float: left;
+    margin-left: 38pt;
+    margin-top: 7pt;
+  }
+
+  nav ul {
+    margin-top: 5pt;
+    float: right;
+    margin-right: 20px;
+    font-size: 25pt;
+  }
+
+  nav ul li {
+    display: inline-block;
+    line-height: 80px;
+    margin: 0 22px;
+  }
+
+  nav ul li a {
+    color: white;
+    font-size: 17px;
+    text-transform: uppercase;
+  }
+
+  a.active,
+  a.hover {
+    transition: 0.4s;
+    font-size: 17px;
+  }
+
+  .move-up {
+    position: fixed;
+    margin-right: 50px;
+    cursor: pointer;
+    bottom: 30px;
+    right: 0;
+    z-index: 1;
+    text-align: center;
+    height: 60px;
+    color: rgb(1, 206, 35);
+    line-height: 46px;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+  }
+
+  #double-arrow {
+    font-size: 40px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  nav ul {
+    margin-top: 18pt;
+    float: right;
+    margin-right: 60px;
+    font-size: 20pt;
+  }
+
+  nav ul li {
+    display: inline-block;
+    line-height: 70px;
+    margin: 0 22px;
+  }
+
+  nav ul li a {
+    color: white;
+    font-size: 18pt;
+    text-transform: uppercase;
+  }
+
+  a.active {
+    transition: 0.4s;
+    font-size: 18pt;
+  }
+}
+
+@media only screen and (min-width: 1900px) {
+  label.logo {
+    font-family: "Niconne", cursive;
+    color: rgb(247, 250, 252);
+    font-size: 46pt;
+    line-height: 80px;
+    float: left;
+    margin-left: 48pt;
+    margin-top: 12pt;
+  }
+
+  nav {
+    background: url("https://i.imgur.com/yQ8PTjxh.jpg");
+    height: 110px;
+    width: 100%;
+  }
+
+  nav ul {
+    margin-top: 18pt;
+    float: right;
+    margin-right: 60px;
+    font-size: 25pt;
+  }
+
+  nav ul li {
+    display: inline-block;
+    line-height: 70px;
+    margin: 0 22px;
+  }
+
+  nav ul li a {
+    color: white;
+    font-size: 20pt;
+    text-transform: uppercase;
+  }
+
+  a.active {
+    transition: 0.4s;
+    font-size: 20pt;
+  }
 }

@@ -10,7 +10,8 @@ const Parallaximg = (props) => {
       justifyContent: 'center', 
       alignItems: 'center', 
       textshadow: '1in',
-      height: '100%', 
+      height: '100%',
+      width: '100%', 
       color: '#ffffff', 
       backgroundColor: `rgba(0,0,0,${props.opacity == null && '0'})`,
       WebkitFilter: 'blur(0px) saturated(2)'

@@ -19,7 +19,7 @@ export default class MainMarket extends Component {
       <div className = "vintage-market-title">
         <h2 className = "vintage-market-title">Vintage Market</h2>
       </div>
-      <div className = "border-top"></div>
+      <div className = "border-top-1"></div>
       <div className = "sort-page"> 
         <label className = "radio-button">
           <input placeholder = "search" className = "seach-text"
@@ -31,7 +31,7 @@ export default class MainMarket extends Component {
         <strong className = "s1">Sort By Price</strong>
         <label>
           <strong className = "s2">Filter</strong>
-            <select onChange={(e) => this.props.filterProducts(e.target.value)}>
+            <select className = "filter-products" onChange={(e) => this.props.filterProducts(e.target.value)}>
               <option value="all">All</option>
               <option value="Sneakers">Sneakers</option>
               <option value="Jerseys">Jerseys</option>
@@ -41,6 +41,7 @@ export default class MainMarket extends Component {
       </div>
     <br></br>
     <br></br>
+   
 
     { this.props.searchText === "" ?
       <div className = "market_grid">

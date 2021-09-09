@@ -12,7 +12,6 @@ export default class FixedHeader extends Component {
   return(
    <div className = "header">
       <nav>
-        
         { this.props.token === "false" ? <Link to= "/"><label onClick = {() => this.props.resetSearchText()} className = "logo">Vintage Hoops</label></Link> 
         : <Link to= "/logout"><label className = "logo" onClick = {() => this.props.logOut()}>
           <a  className = "logout">{this.props.currentUser} Logout</a></label></Link> }

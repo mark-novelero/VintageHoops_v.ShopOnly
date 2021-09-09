@@ -1,3 +1,7 @@
+.home-top {
+  width: 120%;
+}
+
 .title {
   font-family: "Niconne", cursive;
   font-size: 100px;
@@ -64,6 +68,7 @@
 .login {
   text-align: center;
   align-content: center;
+  width: 100%;
 }
 
 .username {
@@ -291,4 +296,306 @@
 }
 .enter:hover {
   box-shadow: 0 0 40px 40px #3d1404 inset;
+}
+
+@media only screen and (min-width: 1220px) {
+  .home-top {
+    width: 100%;
+  }
+
+  .title {
+    font-family: "Niconne", cursive;
+    font-size: 100px;
+    letter-spacing: 1.3px;
+    color: rgb(250, 252, 138);
+    margin-bottom: 100px;
+    text-shadow: 5in;
+    outline: black;
+    text-align: center;
+  }
+
+  .error {
+    color: red;
+    margin-top: 3px;
+  }
+
+  .welcome {
+    font-family: "Niconne", cursive;
+    color: #ffffff;
+    background: red;
+    text-shadow: 1px 3px 0 #969696, 1px 13px 5px #aba8a8;
+    color: rgb(3, 1, 1);
+    background: #ffffff;
+    font-size: 40pt;
+    text-align: center;
+
+    animation: fadeIn 6s;
+    -webkit-animation: fadeIn 6s;
+    -moz-animation: fadeIn 6s;
+    -o-animation: fadeIn 6s;
+    -ms-animation: fadeIn 6s;
+  }
+
+  .listing-created {
+    font-family: "Kanit", sans-serif;
+    font-weight: 700;
+    font-size: 22pt;
+    color: rgb(249, 252, 249);
+    margin-bottom: 25px;
+
+    animation: fadeIn 6s;
+    -webkit-animation: fadeIn 6s;
+    -moz-animation: fadeIn 6s;
+    -o-animation: fadeIn 6s;
+    -ms-animation: fadeIn 6s;
+  }
+
+  .sub {
+    font-family: "Staatliches", cursive;
+    font-size: 19pt;
+    letter-spacing: 1.2px;
+    color: rgb(5, 2, 2);
+    margin-top: 20px;
+  }
+
+  .return {
+    font-family: "Staatliches", cursive;
+    font-size: 20pt;
+    letter-spacing: 1.2px;
+    color: rgb(5, 2, 2);
+    margin-top: 32px;
+  }
+
+  .login {
+    text-align: center;
+    align-content: center;
+    width: 100%;
+  }
+
+  .username {
+    padding: 10px;
+    height: 20pt;
+    text-align: center;
+  }
+
+  .password {
+    text-align: center;
+    padding: 10px;
+    height: 20pt;
+  }
+
+  .new-item-form {
+    box-shadow: 0 6px 6px 0 rgba(15, 14, 15, 0.2);
+    margin-top: 8%;
+    margin-right: 3%;
+    margin-left: 3%;
+    padding: 18px;
+    border-radius: 15px;
+    background-image: url("https://i.imgur.com/QQQuPtL.jpg");
+  }
+
+  .main-form {
+    margin-bottom: 0.6in;
+    margin-top: 0.6in;
+    border-radius: 15px;
+    color: black;
+  }
+
+  .new-product-form {
+    color: white;
+  }
+
+  .username {
+    margin-right: 7px;
+    height: 32px;
+  }
+
+  .password {
+    height: 32px;
+  }
+
+  .div-line {
+    border-bottom: 1.5px inset rgb(165, 162, 162);
+    max-width: 50%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 8px 10px 0 rgba(39, 33, 77, 0.2);
+    margin-bottom: 6px;
+    margin-top: 0px;
+  }
+
+  .log-btn {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #080808;
+    border-radius: 0.9em;
+    color: #030303;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: inline-flex;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 10px;
+    padding: 0.8em 1.7em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  .log-btn:hover,
+  .btn:focus {
+    color: #fff;
+    outline: 0;
+  }
+
+  .log-btn {
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  }
+  .log-btn:hover {
+    box-shadow: 0 0 40px 40px #550f07 inset;
+  }
+
+  .register {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #080808;
+    border-radius: 0.9em;
+    color: #030303;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: inline-flex;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    font-size: 0.8rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 10px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    margin-bottom: 30px;
+  }
+
+  .register:hover,
+  .btn:focus {
+    color: #fff;
+    outline: 0;
+  }
+
+  .register {
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  }
+  .register:hover {
+    box-shadow: 0 0 40px 40px #550f07 inset;
+  }
+
+  .shop {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #023f19;
+    border-radius: 0.9em;
+    color: #033d19;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: inline-flex;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+  }
+  .shop:hover,
+  .btn:focus {
+    color: #fff;
+    outline: 0;
+  }
+
+  .shop {
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  }
+  .shop:hover {
+    box-shadow: 0 0 40px 40px #1e2e0f inset;
+  }
+
+  .enter {
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid #0d3308;
+    border-radius: 0.9em;
+    color: #033d19;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: inline-flex;
+    -webkit-align-self: center;
+    -ms-flex-item-align: center;
+    align-self: center;
+    font-size: 0.85rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 0.8em 1.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+  }
+
+  .enter:hover,
+  .btn:focus {
+    color: #fff;
+    outline: 0;
+  }
+
+  .enter {
+    -webkit-transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+    transition: box-shadow 300ms ease-in-out, color 300ms ease-in-out;
+  }
+  .enter:hover {
+    box-shadow: 0 0 40px 40px #3d1404 inset;
+  }
 }

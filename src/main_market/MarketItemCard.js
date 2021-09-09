@@ -6,6 +6,10 @@ import {Link} from 'react-router-dom'
 
 const MarketItemCard = (props) => {
 
+  let buttonSize = "medium"
+  if(window.innerWidth > 1600){
+    buttonSize = "huge"
+  }
   
   return(
 
@@ -16,13 +20,13 @@ const MarketItemCard = (props) => {
         <br></br>
 
         <Segment className= "market-details" >
-          <Grid columns={2} relaxed='very'>
+          <Grid columns={2} relaxed='very' className= "market-details">
             <Grid.Column  className = "item_details_grid">
               <div className = "product-img-div">
                 <img className = "item-pic-detail" src={props.selectMarketItem.image} />
               </div>
              </Grid.Column> 
-            <Grid.Column>
+            <Grid.Column  className = "item_details_grid">
               <div className = "item-details-div">
                   <h1 className = "title-item-details">{props.selectMarketItem.title}</h1>
               </div>
@@ -39,22 +43,22 @@ const MarketItemCard = (props) => {
               <Segment>
                 { props.itemAdded === false ? 
                     <Button onClick ={() => props.addItemToCart(props.selectMarketItem)} 
-                            size = "medium" color = "blue">Add to cart</Button> 
+                            size = {buttonSize} color = "blue">Add to cart</Button> 
                 : 
                 <div>
                     <Link to = "/main">
                       <Button onClick = {() => props.itemAddedFunc()} 
-                              size = "medium" color = "blue">SHOP</Button>
+                              size = {buttonSize} color = "blue">SHOP</Button>
                     </Link>
                     <Link to = "/cart">
                       <Button onClick = {() => props.itemAddedFunc()} 
-                              size = "medium" color = "orange">CHECKOUT</Button>
+                              size = {buttonSize} color = "orange">CHECKOUT</Button>
                     </Link>
                 </div> } 
                 
                 {props.itemAdded === false ? 
                   <Link to = "/main">
-                    <Button size = "medium" color = "orange">Back</Button>
+                    <Button size = {buttonSize} color = "orange">Back</Button>
                   </Link> : null } 
               </Segment>
 

@@ -1,8 +1,7 @@
 .market_grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, 3.32in);
   grid-template-rows: repeat(2, 1fr);
-  grid-gap: 50px;
   margin-top: 0.55in;
 }
 
@@ -52,13 +51,16 @@
 }
 
 .market_photo {
-  width: 250px;
-  height: 195px;
+  width: 270px;
+  height: 200px;
   margin-top: 30px;
   object-fit: cover;
-  border: 1px solid #3d0c0c;
-  box-shadow: 0 6px 6px 0 rgba(15, 14, 15, 0.2);
-  padding: 1.5px;
+  box-shadow: 2px 6px 6px 0 rgba(15, 14, 15, 0.2);
+  padding: 6.5px;
+}
+
+.market_photo:hover {
+  filter: brightness(90%);
 }
 
 .sort-page {
@@ -69,9 +71,10 @@
 }
 
 .seach-text {
-  margin-right: 598px;
+  margin-right: 450px;
   width: 2.6in;
   height: 24px;
+  margin-top: 7px;
 }
 
 .s1 {
@@ -102,10 +105,19 @@
 }
 
 .vintage-market-title {
-  font-size: 51px;
-  font-family: "Niconne", cursive;
+  font-size: 44px;
+  font-family: "Fredericka the Great", cursive;
   color: rgb(49, 49, 51);
-  margin-bottom: 0.3in;
+  margin-bottom: 0.4in;
+  margin-left: 0.8in;
+}
+
+.border-top-1 {
+  border-bottom: 2px inset rgb(201, 199, 199);
+  max-width: 95%;
+  margin-left: 1.7in;
+  box-shadow: 5px 8px 10px 0 rgba(131, 130, 136, 0.2);
+  margin-top: 0px;
 }
 
 .border-top {
@@ -136,30 +148,6 @@
   font-family: "Kanit", sans-serif;
 }
 
-.card {
-  width: 500px;
-  height: 394px;
-  text-align: center;
-  margin: auto;
-  box-shadow: 2px 4px 8px 0 rgba(58, 33, 168, 0.2);
-  max-width: 300px;
-  border-radius: 10px;
-}
-
-.product_title {
-  font-family: "Kanit", sans-serif;
-  font-size: 15pt;
-  font-weight: 500;
-  color: rgb(8, 3, 15);
-  padding: 6px;
-}
-
-.price-card {
-  color: rgb(5, 5, 5);
-  font-size: 18px;
-  font-family: "Kanit", sans-serif;
-}
-
 .button_market {
   border: none;
   border-radius: 12px;
@@ -187,4 +175,879 @@
 .radio-button {
   margin-right: 10px;
   background-color: 3px black;
+}
+
+.card {
+  width: 290px;
+  text-align: center;
+  margin: auto;
+  border-radius: 10px;
+}
+
+.underline {
+  border-bottom: 1px inset rgb(10, 9, 9);
+  margin-top: 7px;
+  margin-left: 10px;
+  width: 95%;
+}
+
+.product_title {
+  font-family: "Tenor Sans", sans-serif;
+  letter-spacing: 0.9px;
+  color: rgb(80, 73, 70);
+  font-size: 12pt;
+  font-weight: 500;
+  padding: 6px;
+  text-align: left;
+}
+
+.price-card {
+  color: rgb(80, 73, 70);
+  font-size: 11pt;
+  font-weight: 300;
+  font-family: "Tenor Sans", sans-serif;
+  text-align: left;
+  margin-left: 2.5%;
+}
+
+@media only screen and (min-width: 1200px) {
+  .market_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 3.32in);
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 0.55in;
+  }
+
+  .market-details {
+    margin-top: 0.5in;
+  }
+
+  .top-market-page {
+    margin-top: 0.75in;
+  }
+
+  .price-div {
+    margin-top: 38px;
+    color: rgb(26, 17, 17);
+  }
+
+  .product-img-div {
+    margin-top: auto;
+    border-style: inset;
+    border-width: 0.8px;
+    border-color: rgb(217, 217, 235);
+    box-shadow: 1px 3px 2px 0 rgba(151, 143, 151, 0.2);
+  }
+
+  .product-basket {
+    font-family: "Kanit", sans-serif;
+    font-size: 20px;
+    color: rgb(7, 3, 22);
+  }
+
+  .item-details-div {
+    margin-top: 6%;
+    margin-bottom: 3px;
+  }
+
+  .product_details {
+    width: 420px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .item_details_grid {
+    width: 80%;
+  }
+
+  .market_photo {
+    width: 270px;
+    height: 200px;
+    margin-top: 30px;
+    object-fit: cover;
+    box-shadow: 2px 6px 6px 0 rgba(15, 14, 15, 0.2);
+    padding: 6.5px;
+  }
+
+  .market_photo:hover {
+    filter: brightness(90%);
+  }
+
+  .sort-page {
+    margin-top: 0.2in;
+    display: inline;
+    margin-bottom: 0.8in;
+    margin-right: 0.01%;
+  }
+
+  .seach-text {
+    margin-right: 520px;
+    width: 2.6in;
+    height: 24px;
+    margin-top: 7px;
+  }
+
+  .s1 {
+    font-size: 15.5px;
+    margin-right: 53px;
+    font-family: "Kanit", sans-serif;
+  }
+
+  .title-item-details {
+    font-family: "Forum", cursive;
+    font-size: 24pt;
+    box-shadow: #444343;
+  }
+
+  .info-div {
+    margin-bottom: 50px;
+  }
+
+  .radial {
+    margin-right: 6px;
+  }
+
+  .item-pic-detail {
+    max-width: 450px;
+    max-height: 330px;
+    margin-top: 45px;
+    margin-bottom: 25px;
+  }
+
+  .vintage-market-title {
+    font-size: 44px;
+    font-family: "Fredericka the Great", cursive;
+    color: rgb(49, 49, 51);
+    margin-bottom: 0.4in;
+    margin-right: 0.69in;
+  }
+
+  .border-top {
+    border-bottom: 2px inset gray;
+    max-width: 88%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 8px 10px 0 rgba(39, 33, 77, 0.2);
+    margin-bottom: 6px;
+    margin-top: 0px;
+  }
+
+  .border-top-1 {
+    border-bottom: 2px inset rgb(201, 199, 199);
+    max-width: 95%;
+    margin-right: 2in;
+    box-shadow: 5px 8px 10px 0 rgba(131, 130, 136, 0.2);
+    margin-top: 0px;
+  }
+
+  .border-bottom {
+    border-bottom: 2px inset rgb(206, 201, 201);
+    max-width: 80%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 8px 10px 0 rgba(39, 33, 77, 0.2);
+    margin-top: 40px;
+  }
+
+  .s2 {
+    font-size: 15.5px;
+    margin-right: 10px;
+    color: rgb(10, 10, 10);
+    font-family: "Kanit", sans-serif;
+  }
+
+  .button_market {
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    width: 80%;
+    font-size: 15px;
+    box-shadow: 0 6px 6px 0 rgba(58, 33, 168, 0.2);
+    background-color: rgb(178, 177, 187);
+  }
+
+  .button_market:hover {
+    color: rgb(7, 2, 2);
+  }
+
+  .button_market:active {
+    color: #222;
+    box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2), 1px 1px 0 0 #636161,
+      2px 2px 0 0 #535252, 3px 3px 0 0 #4b4a4a, 4px 4px 0 0 #4b4a4a,
+      5px 5px 0 0 #444343;
+  }
+
+  .radio-button {
+    margin-right: 10px;
+    background-color: 3px black;
+  }
+
+  .card {
+    width: 290px;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+  }
+
+  .underline {
+    border-bottom: 1px inset rgb(10, 9, 9);
+    margin-top: 7px;
+    margin-left: 10px;
+    width: 95%;
+  }
+
+  .product_title {
+    font-family: "Tenor Sans", sans-serif;
+    letter-spacing: 0.9px;
+    color: rgb(80, 73, 70);
+    font-size: 12pt;
+    font-weight: 500;
+    padding: 6px;
+    text-align: left;
+  }
+
+  .price-card {
+    color: rgb(80, 73, 70);
+    font-size: 11pt;
+    font-weight: 300;
+    font-family: "Tenor Sans", sans-serif;
+    text-align: left;
+    margin-left: 2.5%;
+  }
+}
+
+@media only screen and (min-width: 1300px) {
+  .market_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 10px;
+    margin-top: 0.4in;
+    margin-left: 0.2%;
+  }
+
+  .market-details {
+    margin-top: 0.5in;
+  }
+
+  .top-market-page {
+    margin-top: 0.75in;
+  }
+
+  .price-div {
+    margin-top: 38px;
+    color: rgb(26, 17, 17);
+  }
+
+  .product-img-div {
+    margin-top: auto;
+    border-style: inset;
+    border-width: 0.8px;
+    border-color: rgb(217, 217, 235);
+    box-shadow: 1px 3px 2px 0 rgba(151, 143, 151, 0.2);
+  }
+
+  .product-basket {
+    font-family: "Kanit", sans-serif;
+    font-size: 20px;
+    color: rgb(7, 3, 22);
+  }
+
+  .item-details-div {
+    margin-top: 6%;
+    margin-bottom: 3px;
+  }
+
+  .product_details {
+    width: 420px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .item_details_grid {
+    width: 80%;
+  }
+
+  .market_photo {
+    width: 300px;
+    height: 230px;
+    margin-top: 30px;
+    object-fit: cover;
+    box-shadow: 2px 6px 6px 0 rgba(15, 14, 15, 0.2);
+    padding: 1.5px;
+  }
+
+  .market_photo:hover {
+    filter: brightness(91%);
+  }
+
+  .sort-page {
+    margin-top: 0.2in;
+    display: inline;
+    margin-bottom: 0.8in;
+    margin-right: 0.01%;
+  }
+
+  .seach-text {
+    margin-right: 458px;
+    width: 2.6in;
+    height: 24px;
+  }
+
+  .s1 {
+    font-size: 15.5px;
+    margin-right: 53px;
+    font-family: "Kanit", sans-serif;
+  }
+
+  .title-item-details {
+    font-family: "Forum", cursive;
+    font-size: 24pt;
+    box-shadow: #444343;
+  }
+
+  .info-div {
+    margin-bottom: 50px;
+  }
+
+  .radial {
+    margin-right: 6px;
+  }
+
+  .item-pic-detail {
+    max-width: 450px;
+    max-height: 330px;
+    margin-top: 45px;
+    margin-bottom: 25px;
+  }
+
+  .vintage-market-title {
+    font-size: 51px;
+    font-family: "Fredericka the Great", cursive;
+    color: rgb(49, 49, 51);
+    margin-bottom: 0.5in;
+    margin-left: 0.7in;
+  }
+
+  .border-top {
+    border-bottom: 2px inset gray;
+    max-width: 80%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 8px 10px 0 rgba(39, 33, 77, 0.2);
+    margin-bottom: 6px;
+    margin-top: 0px;
+  }
+
+  .border-top-1 {
+    border-bottom: 2px inset rgb(201, 199, 199);
+    max-width: 18in;
+    margin-left: 1.8in;
+    box-shadow: 5px 8px 10px 0 rgba(131, 130, 136, 0.2);
+    margin-top: 0px;
+  }
+
+  .border-bottom {
+    border-bottom: 2px inset rgb(206, 201, 201);
+    max-width: 80%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 8px 10px 0 rgba(39, 33, 77, 0.2);
+    margin-top: 40px;
+  }
+
+  .s2 {
+    font-size: 15.5px;
+    margin-right: 10px;
+    color: rgb(10, 10, 10);
+    font-family: "Kanit", sans-serif;
+  }
+
+  .product_title {
+    font-family: "Tenor Sans", sans-serif;
+    letter-spacing: 0.9px;
+    color: rgb(80, 73, 70);
+    font-size: 13pt;
+    font-weight: 500;
+    padding: 6px;
+  }
+
+  .price-card {
+    color: rgb(80, 73, 70);
+    font-size: 13px;
+    font-family: "Tenor Sans", sans-serif;
+  }
+
+  .underline {
+    border-bottom: 2px inset rgb(10, 9, 9);
+    margin-top: 7px;
+    margin-left: 10px;
+    width: 95%;
+  }
+
+  .button_market {
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    width: 80%;
+    font-size: 15px;
+    box-shadow: 0 6px 6px 0 rgba(58, 33, 168, 0.2);
+    background-color: rgb(178, 177, 187);
+  }
+
+  .button_market:hover {
+    color: rgb(7, 2, 2);
+  }
+
+  .button_market:active {
+    color: #222;
+    box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2), 1px 1px 0 0 #636161,
+      2px 2px 0 0 #535252, 3px 3px 0 0 #4b4a4a, 4px 4px 0 0 #4b4a4a,
+      5px 5px 0 0 #444343;
+  }
+
+  .radio-button {
+    margin-right: 10px;
+    background-color: 3px black;
+  }
+
+  .card {
+    width: 310px;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+  .market_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap: 15px;
+    margin-top: 1px;
+  }
+
+  .market-details {
+    margin-top: 0.5in;
+  }
+
+  .top-market-page {
+    margin-top: 0.75in;
+  }
+
+  .price-div {
+    margin-top: 38px;
+    color: rgb(26, 17, 17);
+  }
+
+  .product-img-div {
+    margin-top: auto;
+    border-style: inset;
+    border-width: 0.8px;
+    border-color: rgb(217, 217, 235);
+    box-shadow: 1px 3px 2px 0 rgba(151, 143, 151, 0.2);
+  }
+
+  .product-basket {
+    font-family: "Kanit", sans-serif;
+    font-size: 20px;
+    color: rgb(7, 3, 22);
+  }
+
+  .item-details-div {
+    margin-top: 6%;
+    margin-bottom: 3px;
+  }
+
+  .product_details {
+    width: 420px;
+    height: 300px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .item_details_grid {
+    width: 80%;
+  }
+
+  .market_photo {
+    width: 300px;
+    height: 250px;
+    margin-top: 30px;
+    object-fit: cover;
+    box-shadow: 0 6px 6px 0 rgba(15, 14, 15, 0.2);
+    padding: 12.5px;
+  }
+
+  .market_photo:hover {
+    filter: brightness(92%);
+  }
+
+  .sort-page {
+    margin-top: 0.2in;
+    display: inline;
+    margin-bottom: 0.8in;
+    margin-right: 0.01%;
+  }
+
+  .seach-text {
+    margin-right: 740px;
+    width: 2.6in;
+    height: 24px;
+    margin-top: 7px;
+  }
+
+  .s1 {
+    font-size: 15.5px;
+    margin-right: 53px;
+    font-family: "Kanit", sans-serif;
+  }
+
+  .title-item-details {
+    font-family: "Forum", cursive;
+    font-size: 24pt;
+    box-shadow: #444343;
+  }
+
+  .info-div {
+    margin-bottom: 50px;
+  }
+
+  .radial {
+    margin-right: 6px;
+  }
+
+  .item-pic-detail {
+    max-width: 450px;
+    max-height: 330px;
+    margin-top: 45px;
+    margin-bottom: 25px;
+  }
+
+  .vintage-market-title {
+    font-size: 44px;
+    font-family: "Fredericka the Great", cursive;
+    color: rgb(49, 49, 51);
+    margin-bottom: 0.5in;
+    margin-top: 0.6in;
+    margin-left: 0.7in;
+  }
+
+  .border-top {
+    border-bottom: 2px inset gray;
+    max-width: 80%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 8px 10px 0 rgba(39, 33, 77, 0.2);
+    margin-bottom: 6px;
+    margin-top: 0px;
+  }
+
+  .border-top-1 {
+    border-bottom: 2px inset rgb(201, 199, 199);
+    max-width: 90%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 8px 10px 0 rgba(131, 130, 136, 0.2);
+    margin-top: 0px;
+  }
+
+  .border-bottom {
+    border-bottom: 2px inset rgb(206, 201, 201);
+    max-width: 80%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 8px 10px 0 rgba(39, 33, 77, 0.2);
+    margin-top: 40px;
+  }
+
+  .s2 {
+    font-size: 15.5px;
+    margin-right: 10px;
+    color: rgb(10, 10, 10);
+    font-family: "Kanit", sans-serif;
+  }
+
+  .product_title {
+    font-family: "Tenor Sans", sans-serif;
+    letter-spacing: 1.1px;
+    color: rgb(80, 73, 70);
+    font-size: 12pt;
+    font-weight: 300;
+    padding: 2px;
+    text-align: left;
+    margin-left: 2%;
+  }
+
+  .underline {
+    border-bottom: 2px inset rgb(10, 9, 9);
+    margin-top: 7px;
+    width: 94%;
+  }
+
+  .price-card {
+    color: rgb(80, 73, 70);
+    font-size: 11pt;
+    font-family: "Tenor Sans", sans-serif;
+    text-align: left;
+    margin-left: 2.5%;
+  }
+
+  .button_market {
+    border: none;
+    border-radius: 12px;
+    padding: 12px;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    width: 80%;
+    font-size: 15px;
+    box-shadow: 0 6px 6px 0 rgba(58, 33, 168, 0.2);
+    background-color: rgb(178, 177, 187);
+  }
+
+  .button_market:hover {
+    color: rgb(7, 2, 2);
+  }
+
+  .button_market:active {
+    color: #222;
+    box-shadow: inset 0 -4px 0 0 rgba(0, 0, 0, 0.2), 1px 1px 0 0 #636161,
+      2px 2px 0 0 #535252, 3px 3px 0 0 #4b4a4a, 4px 4px 0 0 #4b4a4a,
+      5px 5px 0 0 #444343;
+  }
+
+  .radio-button {
+    margin-right: 10px;
+    background-color: 3px black;
+  }
+
+  .card {
+    width: 306px;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+  }
+}
+
+@media only screen and (min-width: 1620px) {
+  .vintage-market-title {
+    font-size: 53px;
+    font-family: "Fredericka the Great", cursive;
+    color: rgb(49, 49, 51);
+    margin-bottom: 0.5in;
+    margin-top: 1.3in;
+  }
+
+  .border-top-1 {
+    border-bottom: 2px inset rgb(201, 199, 199);
+    max-width: 90%;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 5px 8px 10px 0 rgba(131, 130, 136, 0.2);
+    margin-top: 0px;
+  }
+
+  .seach-text {
+    margin-right: 790px;
+    width: 3.3in;
+    height: 30px;
+  }
+
+  .s1 {
+    font-size: 16pt;
+    margin-right: 53px;
+    font-family: "Kanit", sans-serif;
+  }
+
+  .s2 {
+    font-size: 16pt;
+    margin-right: 10px;
+    color: rgb(10, 10, 10);
+    font-family: "Kanit", sans-serif;
+  }
+
+  .filter-products {
+    height: 0.22in;
+    width: 1.6in;
+  }
+
+  .market_photo {
+    width: 340px;
+    height: 280px;
+    margin-top: 30px;
+    box-shadow: 1px 8.5px 16px 0px rgba(15, 14, 15, 0.2);
+    padding: 15.5px;
+  }
+
+  .market_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 4.25in);
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 0.1in;
+  }
+
+  .market_photo:hover {
+    filter: brightness(90%);
+  }
+
+  .product_title {
+    font-family: "Tenor Sans", sans-serif;
+    letter-spacing: 1.1px;
+    color: rgb(80, 73, 70);
+    font-size: 14pt;
+    font-weight: 300;
+    padding: 2px;
+    text-align: left;
+    margin-left: 2%;
+  }
+
+  .card {
+    width: 340px;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+  }
+
+  .price-card {
+    color: rgb(5, 5, 5);
+    font-size: 12pt;
+    font-family: "Tenor Sans", sans-serif;
+  }
+}
+
+@media only screen and (min-width: 1900px) {
+  .vintage-market-title {
+    font-size: 70px;
+    font-family: "Fredericka the Great", cursive;
+    color: rgb(49, 49, 51);
+    margin-bottom: 0.6in;
+    margin-top: 1.2in;
+  }
+
+  .seach-text {
+    margin-right: 940px;
+    width: 3.3in;
+    height: 34px;
+  }
+
+  .border-top-1 {
+    border-bottom: 2px inset rgb(201, 199, 199);
+    max-width: 87%;
+    margin-left: 1.29in;
+    box-shadow: 5px 8px 10px 0 rgba(131, 130, 136, 0.2);
+    margin-top: 0px;
+  }
+
+  .s1 {
+    font-size: 18pt;
+    margin-right: 53px;
+    font-family: "Kanit", sans-serif;
+  }
+
+  .s2 {
+    font-size: 18pt;
+    margin-right: 10px;
+    color: rgb(10, 10, 10);
+    font-family: "Kanit", sans-serif;
+  }
+
+  .filter-products {
+    height: 0.24in;
+    width: 1.5in;
+  }
+
+  .market-details {
+    margin-top: 1.5in;
+  }
+
+  .market_grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 0.55in;
+    align-items: center;
+    align-content: center;
+    margin-right: 10px;
+  }
+
+  .market_photo {
+    width: 380px;
+    height: 340px;
+    margin-top: 30px;
+    box-shadow: 1px 8.5px 16px 0px rgba(15, 14, 15, 0.2);
+    padding: 12.5px;
+  }
+
+  .market_photo:hover {
+    filter: brightness(89%);
+  }
+
+  .product_title {
+    font-family: "Tenor Sans", sans-serif;
+    letter-spacing: 0.9px;
+    color: rgb(80, 73, 70);
+    font-size: 17pt;
+    font-weight: 500;
+    padding: 6px;
+    text-align: left;
+  }
+
+  .card {
+    width: 400px;
+    text-align: center;
+    margin: auto;
+    border-radius: 10px;
+  }
+
+  .price-card {
+    color: rgb(80, 73, 70);
+    font-size: 17px;
+    font-family: "Tenor Sans", sans-serif;
+  }
+
+  .item-pic-detail {
+    margin-top: 45px;
+    margin-bottom: 35px;
+    height: 20in;
+  }
+
+  .item_details_grid {
+    width: 100%;
+    margin-top: 0.9in;
+    margin-bottom: 0.8in;
+  }
+  .market-details {
+    margin-top: 1.8in;
+    height: 6.2in;
+  }
+  .underline {
+    border-bottom: 2px inset rgb(10, 9, 9);
+    margin-top: 7px;
+    margin-left: 10px;
+    width: 95%;
+  }
 }

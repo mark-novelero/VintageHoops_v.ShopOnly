@@ -162,6 +162,10 @@
   margin-top: 1px;
 }
 
+.main-cart-div {
+  margin-top: 0.6in;
+}
+
 .cart-item-div-top {
   box-shadow: 2px 2px 6px 4px rgba(39, 33, 77, 0.2);
   padding: 0.25in;
@@ -174,8 +178,11 @@
 }
 
 .your-basket {
-  font-family: "Niconne", cursive;
+  font-family: "Fredericka the Great", cursive;
+  color: rgb(49, 49, 51);
+  letter-spacing: 1.3px;
   font-size: 32pt;
+  margin-top: 1in;
 }
 
 .cart-item-div {
@@ -230,4 +237,48 @@
   text-align: center;
   align-items: center;
   border: rgb(44, 43, 43);
+}
+
+@media only screen and (min-width: 1600px) {
+  .your-basket {
+    font-family: "Fredericka the Great", cursive;
+    color: rgb(49, 49, 51);
+    letter-spacing: 1.3px;
+    font-size: 38pt;
+    margin-top: 1.1in;
+  }
+  .main-cart-div {
+    margin-top: 0.8in;
+  }
+
+  .cart-item-div-top {
+    box-shadow: 2px 2px 6px 4px rgba(39, 33, 77, 0.2);
+    padding: 0.25in;
+    width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    margin-top: 35px;
+    border-radius: 5px;
+  }
+
+  .cartitem {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: rgb(44, 43, 43);
+    font-family: "Kanit", sans-serif;
+    font-size: 17pt;
+    margin-top: 40px;
+    border-right: rgb(44, 43, 43);
+    border-width: 5px;
+  }
+
+  .cartimg {
+    max-width: 160px;
+    max-height: 130px;
+    border-style: inset;
+    margin-right: 36px;
+    margin-left: 7px;
+  }
 }

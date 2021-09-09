@@ -19,7 +19,7 @@ class CartHolder extends Component {
         <img className = "mj" src= "https://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2017%2F09%2Fmichael-jordan-crying-face-meme-jeopardy-question-0.jpg?w=960&cbr=1&q=90&fit=max"></img>
       </div>
      : 
-     <div className = "main-div">
+     <div className = "main-cart-div">
       <h1 className = "your-basket">Basket</h1>
       { this.props.cartCount > 0 ?
         <Grid columns={1} relaxed = "very">
@@ -36,7 +36,7 @@ class CartHolder extends Component {
     
       { this.props.cartCount > 1 ? 
         <Grid columns={1} relaxed = "very">
-          <div className = "cart-item-div">
+          <div className = "cart-item-div-top">
             <Button color = "red" size = "mini" className = "remove-btn" onClick = {() => {this.props.removeCartItem(this.props.cartItems[1])}}>X</Button>
             <Grid.Column>
               <div className = "cart-body"> 
@@ -49,7 +49,7 @@ class CartHolder extends Component {
     
       { this.props.cartCount > 2 ? 
         <Grid columns={1} relaxed = "very">
-          <div className = "cart-item-div">
+          <div className = "cart-item-div-top">
             <Button color = "red" size = "mini" className = "remove-btn" onClick = {() => {this.props.removeCartItem(this.props.cartItems[2])}}>X</Button>
             <Grid.Column>
               <div className = "cart-body"> 
@@ -62,7 +62,7 @@ class CartHolder extends Component {
 
       { this.props.cartCount > 3 ? 
         <Grid columns={1} relaxed = "very">
-          <div className = "cart-item-div">
+          <div className = "cart-item-div-top">
             <Button color = "red" size = "mini" className = "remove-btn" onClick = {() => {this.props.removeCartItem(this.props.cartItems[3])}}>X</Button>
             <Grid.Column>
               <div className = "cart-body"> 
@@ -75,7 +75,7 @@ class CartHolder extends Component {
   
       { this.props.cartCount > 4 ? 
         <Grid columns={1} relaxed = "very">
-          <div className = "cart-item-div">
+          <div className = "cart-item-div-top">
             <Button color = "red" size = "mini" className = "remove-btn" onClick = {() => {this.props.removeCartItem(this.props.cartItems[3])}}>X</Button>
             <Grid.Column>
               <div className = "cart-body"> 

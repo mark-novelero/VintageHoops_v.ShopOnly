@@ -11,12 +11,12 @@ class Productcards extends Component {
   return(
 
    <div className = "card" onMouseOver = {() => this.props.grabMarketItem(this.props.product)}>
+      <Link to = "/marketitem"> 
       <img className = "market_photo" src={this.props.product.image}></img>
+      </Link>
+      <div className = "underline"></div>
       <h3 className = "product_title">{this.props.product.title}</h3>
       <p className = "price-card">${this.props.product.price}</p>
-      <Link to = "/marketitem"> 
-         <button onClick = {() => {this.props.resetSearchText()}} className = "button_market">See Product Details</button>
-      </Link>
    </div>
    )
  } 
